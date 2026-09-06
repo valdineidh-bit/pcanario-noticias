@@ -1,419 +1,215 @@
 :root{
-  --azul:#061426;
-  --azul2:#0b2544;
-  --ouro:#d8b43c;
-  --fundo:#f3f5f8;
-  --texto:#101722;
-  --cinza:#6d7682;
+ --azul:#061426;
+ --azul2:#0d2b4b;
+ --ouro:#d8b43c;
+ --fundo:#f3f5f8;
+ --texto:#111923;
+ --cinza:#69737e;
 }
-
 *{margin:0;padding:0;box-sizing:border-box}
-
 html{scroll-behavior:smooth}
-
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--fundo);
-  color:var(--texto);
+ font-family:Arial,Helvetica,sans-serif;
+ background:var(--fundo);
+ color:var(--texto);
 }
-
 a{text-decoration:none;color:inherit}
+.wrap{width:min(1180px,calc(100% - 30px));margin:auto}
 
-.wrap{
-  width:min(1180px,calc(100% - 32px));
-  margin:auto;
-}
-
-/* PLANTÃO */
+/* PLANTAO */
 .plantao{
-  background:#bd0000;
-  color:#fff;
-  font-size:13px;
+ background:#bd0000;
+ color:white;
+ font-size:13px;
 }
-
 .plantao .wrap{
-  min-height:39px;
-  display:flex;
-  align-items:center;
-  gap:13px;
-  overflow:hidden;
-  white-space:nowrap;
+ height:40px;
+ display:flex;
+ align-items:center;
+ gap:12px;
+ white-space:nowrap;
+ overflow:hidden;
 }
 
-.plantao b{font-size:12px}
-
-/* CABEÇALHO */
+/* CABECALHO */
 header{
-  background:
-    radial-gradient(circle at 80% 20%,#173a63 0,transparent 35%),
-    linear-gradient(135deg,#030b14,#071a30 60%,#0c2747);
-  color:white;
-  border-bottom:3px solid var(--ouro);
+ background:linear-gradient(135deg,#030b14,#0b2948);
+ color:white;
+ border-bottom:3px solid var(--ouro);
 }
-
 .topo{
-  min-height:115px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+ min-height:110px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
 }
-
 .logo{
-  font-size:37px;
-  font-weight:900;
-  letter-spacing:-2px;
+ font-size:36px;
+ font-weight:900;
+ letter-spacing:-2px;
 }
-
 .logo span{color:var(--ouro)}
-
 .slogan{
-  margin-top:4px;
-  color:#aebaca;
-  font-size:11px;
-  letter-spacing:2px;
+ margin-top:5px;
+ color:#adb8c5;
+ font-size:11px;
+ letter-spacing:2px;
 }
-
-.local{
-  color:#bfc9d6;
-  font-size:13px;
-}
+.local{font-size:13px;color:#c3ccd6}
 
 /* MENU */
 nav{
-  background:#0a2039;
-  color:white;
-  position:sticky;
-  top:0;
-  z-index:50;
-  box-shadow:0 4px 15px #0002;
+ background:#09223b;
+ color:white;
+ position:sticky;
+ top:0;
+ z-index:50;
+ box-shadow:0 4px 15px #0002;
 }
-
 .menu{
-  display:flex;
-  overflow-x:auto;
-  scrollbar-width:none;
+ display:flex;
+ overflow-x:auto;
+ scrollbar-width:none;
 }
-
 .menu::-webkit-scrollbar{display:none}
-
 .menu a{
-  flex:none;
-  padding:16px 15px;
-  font-size:12px;
-  font-weight:800;
+ flex:none;
+ padding:16px 15px;
+ font-size:12px;
+ font-weight:800;
 }
-
 .menu a:first-child{color:var(--ouro)}
-.menu a:hover{background:#123353}
+.menu a:hover{background:#123653}
 
 /* PUBLICIDADE */
 .publicidade{
-  margin:22px 0;
-  min-height:75px;
-  background:white;
-  border:1px dashed #c7ccd3;
-  border-radius:12px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:#9299a2;
-  font-size:10px;
-  letter-spacing:1px;
+ margin:22px 0;
+ height:75px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ background:white;
+ border:1px dashed #c7ccd2;
+ border-radius:12px;
+ color:#8e969f;
+ font-size:10px;
+ letter-spacing:1px;
 }
 
 /* DESTAQUE */
 .hero{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:15px;
+ display:grid;
+ grid-template-columns:2fr 1fr;
+ gap:15px;
 }
-
 .principal{
-  min-height:455px;
-  border-radius:18px;
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(to top,#02070eee 
-
-/* ===== CORRECAO PCANARIO MOBILE ===== */
-
-.titulo{
-display:flex;
-align-items:center;
-justify-content:space-between;
-border-bottom:2px solid #ddd;
-padding-bottom:10px;
-margin:30px 0 18px;
+ min-height:450px;
+ border-radius:18px;
+ position:relative;
+ overflow:hidden;
+ background:
+ linear-gradient(to top,#02070eee,#02070e20),
+ url("https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1400&q=85")
+ center/cover;
+ box-shadow:0 10px 30px #0002;
 }
-
-.titulo h2{
-font-size:24px;
-font-weight:800;
+.conteudo-principal{
+ position:absolute;
+ left:30px;
+ right:30px;
+ bottom:30px;
+ color:white;
 }
-
-.titulo a{
-font-size:12px;
-font-weight:bold;
-color:#a88618;
+.tag{
+ display:inline-block;
+ background:var(--ouro);
+ color:#061426;
+ padding:7px 11px;
+ border-radius:5px;
+ font-size:10px;
+ font-weight:900;
+ margin-bottom:12px;
 }
-
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
+.principal h1{
+ font-size:40px;
+ line-height:1.08;
+ max-width:680px;
 }
-
-.card{
-background:#fff;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 6px 20px rgba(0,0,0,.08);
-}
-
-.foto{
-height:180px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#08192c,#245075);
-color:white;
-font-size:13px;
-font-weight:bold;
-}
-
-.card-texto{
-padding:18px;
-}
-
-.card-texto span,
-.lista b{
-color:#a98718;
-font-size:11px;
-font-weight:900;
-}
-
-.card-texto h3{
-font-size:18px;
-line-height:1.3;
-margin:8px 0;
-}
-
-.card-texto p{
-font-size:14px;
-line-height:1.5;
-color:#68717c;
-}
-
-.card-texto small{
-display:block;
-margin-top:12px;
-color:#999;
-}
-
+.principal p{
+ margin-top:12px;
+ line-height:1.5;
+ color:#e0e5eb
+/* MEIO / PEDRO CANARIO */
 .meio{
-display:grid;
-grid-template-columns:2fr 1fr;
-gap:22px;
-margin-top:35px;
+ display:grid;
+ grid-template-columns:2fr 1fr;
+ gap:24px;
 }
-
 .lista{
-background:white;
-border-radius:15px;
-overflow:hidden;
+ background:white;
+ border-radius:15px;
+ overflow:hidden;
+ box-shadow:0 5px 20px #0000000d;
 }
-
 .lista article{
-padding:20px;
-border-bottom:1px solid #eee;
+ padding:21px;
+ border-bottom:1px solid #eceff2;
 }
-
+.lista article:last-child{border-bottom:0}
+.lista b{
+ color:#a58618;
+ font-size:10px;
+ font-weight:900;
+}
 .lista h3{
-font-size:18px;
-margin-top:6px;
+ margin-top:7px;
+ font-size:18px;
+ line-height:1.3;
 }
 
+/* MAIS LIDAS */
 .mais-lidas{
-background:linear-gradient(135deg,#061426,#12375b);
-color:white;
-padding:22px;
-border-radius:16px;
+ background:linear-gradient(145deg,#061426,#0d3155);
+ color:white;
+ border-radius:17px;
+ padding:24px;
+ box-shadow:0 8px 25px #0002;
 }
-
 .mais-lidas h2{
-color:#d8b43c;
-margin-bottom:12px;
+ color:var(--ouro);
+ margin-bottom:12px;
 }
-
 .mais-lidas div{
-display:flex;
-gap:14px;
-padding:14px 0;
-border-top:1px solid rgba(255,255,255,.1);
+ display:flex;
+ gap:15px;
+ padding:16px 0;
+ border-top:1px solid #ffffff18;
 }
-
 .mais-lidas strong{
-font-size:27px;
-color:#d8b43c;
+ color:var(--ouro);
+ font-size:28px;
+}
+.mais-lidas p{
+ font-size:14px;
+ line-height:1.4;
+ font-weight:bold;
 }
 
+/* SERVICOS */
 .servicos{
-margin-top:35px;
-padding:25px;
-background:#061426;
-border-radius:16px;
-color:white;
+ padding:28px;
+ border-radius:18px;
+ color:white;
+ background:linear-gradient(135deg,#061426,#123d65);
 }
-
 .servicos h2{
-color:#d8b43c;
-margin-bottom:18px;
+ color:var(--ouro);
+ margin-bottom:20px;
 }
-
 .grade-servicos{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:12px;
 }
-
 .grade-servicos a{
-min-height:95px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-gap:8px;
-background:rgba(255,255,255,.08);
-border-radius:12px;
-font-size:24px;
-}
-
-.grade-servicos b{
-font-size:13px;
-}
-
-.anuncie{
-margin-top:35px;
-background:white;
-padding:35px 20px;
-text-align:center;
-border-radius:16px;
-}
-
-.anuncie h2{
-margin:8px 0;
-}
-
-.anuncie p{
-margin-bottom:20px;
-color:#68717c;
-}
-
-.anuncie a,
-.envie a{
-display:inline-block;
-background:#d8b43c;
-color:#061426;
-padding:14px 20px;
-border-radius:8px;
-font-weight:bold;
-font-size:12px;
-}
-
-.envie{
-margin-top:25px;
-background:#e6ebf0;
-padding:25px;
-border-radius:15px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-}
-
-.whatsapp{
-position:fixed;
-right:18px;
-bottom:18px;
-width:58px;
-height:58px;
-border-radius:50%;
-background:#25d366;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:27px;
-z-index:100;
-box-shadow:0 5px 20px rgba(0,0,0,.3);
-}
-
-footer{
-margin-top:45px;
-background:#030b14;
-color:#adb7c2;
-}
-
-.rodape{
-min-height:160px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-
-.copy{
-border-top:1px solid rgba(255,255,255,.1);
-text-align:center;
-padding:18px;
-font-size:11px;
-}
-
-@media(max-width:800px){
-
-.cards{
-grid-template-columns:1fr;
-}
-
-.card{
-margin-bottom:4px;
-}
-
-.foto{
-height:165px;
-}
-
-.meio{
-grid-template-columns:1fr;
-}
-
-.grade-servicos{
-grid-template-columns:1fr 1fr;
-}
-
-.envie{
-display:block;
-}
-
-.envie a{
-margin-top:17px;
-}
-
-.rodape{
-display:block;
-padding:32px 0;
-}
-
-.rodape > div + div{
-margin-top:24px;
-}
-
-.titulo h2{
-font-size:22px;
-}
-
-.card-texto h3{
-font-size:19px;
-}
-
-}
-
+ min
