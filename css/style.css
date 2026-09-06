@@ -138,7 +138,8 @@ nav{
 .principal p{
  margin-top:12px;
  line-height:1.5;
- color:#e0e5eb
+ color:#e0e5eb;
+}
 /* MEIO / PEDRO CANARIO */
 .meio{
  display:grid;
@@ -211,7 +212,6 @@ nav{
  grid-template-columns:repeat(4,1fr);
  gap:12px;
 }
-.grade-servicos a{
 .grade-servicos a{
  min-height:100px;
  border-radius:12px;
