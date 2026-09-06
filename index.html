@@ -1,404 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PCanário Notícias - Informação de Pedro Canário e região.">
-  <title>PCanário Notícias | Pedro Canário - ES</title>
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    body{
-      font-family:Arial, Helvetica, sans-serif;
-      background:#f4f5f7;
-      color:#161616;
-    }
-
-    /* PLANTÃO */
-    .plantao{
-      background:#b50000;
-      color:white;
-      padding:9px 15px;
-      text-align:center;
-      font-size:14px;
-      font-weight:bold;
-    }
-
-    /* CABEÇALHO */
-    header{
-      background:#071426;
-      color:white;
-      padding:22px 18px;
-      border-bottom:4px solid #d4af37;
-    }
-
-    .topo{
-      max-width:1200px;
-      margin:auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-    }
-
-    .logo h1{
-      font-size:32px;
-      letter-spacing:-1px;
-    }
-
-    .logo h1 span{
-      color:#d4af37;
-    }
-
-    .logo p{
-      color:#bfc7d2;
-      margin-top:3px;
-      font-size:13px;
-    }
-
-    /* MENU */
-    nav{
-      background:#0d213b;
-    }
-
-    .menu{
-      max-width:1200px;
-      margin:auto;
-      display:flex;
-      overflow-x:auto;
-      white-space:nowrap;
-    }
-
-    .menu a{
-      color:white;
-      text-decoration:none;
-      padding:15px 17px;
-      font-size:14px;
-      font-weight:bold;
-    }
-
-    .menu a:hover{
-      background:#d4af37;
-      color:#071426;
-    }
-
-    /* CONTEÚDO */
-    main{
-      max-width:1200px;
-      margin:25px auto;
-      padding:0 16px;
-    }
-
-    .titulo-area{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:17px;
-    }
-
-    .barra{
-      width:5px;
-      height:25px;
-      background:#d4af37;
-      border-radius:3px;
-    }
-
-    /* DESTAQUE */
-    .destaque{
-      min-height:410px;
-      border-radius:16px;
-      overflow:hidden;
-      position:relative;
-      background:
-        linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.15)),
-        url('https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1400&q=80');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:flex-end;
-      padding:30px;
-      color:white;
-      box-shadow:0 10px 30px rgba(0,0,0,.13);
-    }
-
-    .destaque-conteudo{
-      max-width:750px;
-    }
-
-    .categoria{
-      display:inline-block;
-      background:#d4af37;
-      color:#071426;
-      padding:6px 10px;
-      border-radius:5px;
-      font-size:12px;
-      font-weight:bold;
-      margin-bottom:10px;
-    }
-
-    .destaque h2{
-      font-size:35px;
-      line-height:1.1;
-      margin-bottom:10px;
-    }
-
-    .destaque p{
-      color:#ddd;
-      line-height:1.5;
-    }
-
-    /* NOTÍCIAS */
-    .noticias{
-      margin-top:35px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .card{
-      background:white;
-      border-radius:13px;
-      overflow:hidden;
-      box-shadow:0 4px 18px rgba(0,0,0,.08);
-      transition:.2s;
-    }
-
-    .card:hover{
-      transform:translateY(-4px);
-    }
-
-    .card-img{
-      height:180px;
-      background:#dfe3e8;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      color:#68717d;
-      font-weight:bold;
-    }
-
-    .card-conteudo{
-      padding:18px;
-    }
-
-    .card-conteudo small{
-      color:#b08b19;
-      font-weight:bold;
-    }
-
-    .card-conteudo h3{
-      margin:8px 0;
-      font-size:19px;
-      line-height:1.25;
-    }
-
-    .card-conteudo p{
-      color:#666;
-      font-size:14px;
-      line-height:1.5;
-    }
-
-    /* SERVIÇOS */
-    .servicos{
-      margin-top:40px;
-      background:#071426;
-      border-radius:16px;
-      padding:25px;
-      color:white;
-    }
-
-    .servicos h2{
-      color:#d4af37;
-      margin-bottom:18px;
-    }
-
-    .servicos-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:12px;
-    }
-
-    .servico{
-      background:#102641;
-      padding:18px 10px;
-      border-radius:10px;
-      text-align:center;
-      font-weight:bold;
-    }
-
-    /* WHATSAPP */
-    .whatsapp{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      background:#25D366;
-      color:white;
-      width:58px;
-      height:58px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      font-size:26px;
-      box-shadow:0 5px 20px rgba(0,0,0,.25);
-      z-index:10;
-    }
-
-    footer{
-      margin-top:50px;
-      background:#050d18;
-      color:#aaa;
-      text-align:center;
-      padding:30px 15px;
-      font-size:13px;
-    }
-
-    footer strong{
-      color:#d4af37;
-    }
-
-    /* CELULAR */
-    @media(max-width:800px){
-      .topo{
-        display:block;
-      }
-
-      .logo h1{
-        font-size:27px;
-      }
-
-      .destaque{
-        min-height:360px;
-        padding:22px;
-      }
-
-      .destaque h2{
-        font-size:27px;
-      }
-
-      .noticias{
-        grid-template-columns:1fr;
-      }
-
-      .servicos-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061426">
+<meta name="description" content="PCanário Notícias - Notícias de Pedro Canário e Norte do Espírito Santo">
+<title>PCanário Notícias | Pedro Canário - ES</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <div class="plantao">
-    🔴 PLANTÃO PCANÁRIO — Informação de Pedro Canário e região
+<div class="plantao">
+  <div class="wrap">
+    <b>● PLANTÃO PCANÁRIO</b>
+    <span>Informação de Pedro Canário e região</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap topo">
+    <div>
+      <div class="logo">P<span>CANÁRIO</span></div>
+      <div class="slogan">NOTÍCIAS • PEDRO CANÁRIO - ES</div>
+    </div>
+    <div class="local">Pedro Canário • Espírito Santo</div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap menu">
+    <a href="#">INÍCIO</a>
+    <a href="#cidade">CIDADE</a>
+    <a href="#policia">POLÍCIA</a>
+    <a href="#politica">POLÍTICA</a>
+    <a href="#regiao">REGIÃO</a>
+    <a href="#esportes">ESPORTES</a>
+    <a href="#empregos">EMPREGOS</a>
+    <a href="#classificados">CLASSIFICADOS</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<div class="publicidade">
+  PUBLICIDADE • ANUNCIE SUA EMPRESA NO PCANÁRIO
+</div>
+
+<section class="hero">
+
+  <article class="principal">
+    <div class="conteudo-principal">
+      <span class="tag">DESTAQUE</span>
+      <h1>PCanário: Pedro Canário na palma da sua mão</h1>
+      <p>Notícias, oportunidades e tudo que acontece em Pedro Canário e no Norte Capixaba.</p>
+      <button>LER NOTÍCIA →</button>
+    </div>
+  </article>
+
+  <div class="laterais">
+
+    <article class="mini">
+      <span>CIDADE</span>
+      <h3>Os principais acontecimentos de Pedro Canário</h3>
+    </article>
+
+    <article class="mini">
+      <span>REGIÃO</span>
+      <h3>Informação das cidades do Norte do Espírito Santo</h3>
+    </article>
+
+  </div>
+</section>
+
+<section id="cidade">
+  <div class="titulo">
+    <h2>Últimas Notícias</h2>
+    <a href="#">VER TODAS</a>
   </div>
 
-  <header>
-    <div class="topo">
-      <div class="logo">
-        <h1>P<span>CANÁRIO</span></h1>
-        <p>NOTÍCIAS • PEDRO CANÁRIO - ES</p>
+  <div class="cards">
+
+    <article class="card">
+      <div class="foto">📷 FOTO DA NOTÍCIA</div>
+      <div class="card-texto">
+        <span>CIDADE</span>
+        <h3>Pedro Canário ganha novo portal de notícias e serviços</h3>
+        <p>Informação local com rapidez e espaço para toda a comunidade.</p>
+        <small>Hoje • PCanário</small>
       </div>
-    </div>
-  </header>
+    </article>
 
-  <nav>
-    <div class="menu">
-      <a href="#">INÍCIO</a>
-      <a href="#">CIDADE</a>
-      <a href="#">POLÍCIA</a>
-      <a href="#">POLÍTICA</a>
-      <a href="#">REGIÃO</a>
-      <a href="#">ESPORTES</a>
-      <a href="#">EMPREGOS</a>
-      <a href="#">CLASSIFICADOS</a>
-    </div>
-  </nav>
-
-  <main>
-
-    <div class="titulo-area">
-      <div class="barra"></div>
-      <h2>Em destaque</h2>
-    </div>
-
-    <section class="destaque">
-      <div class="destaque-conteudo">
-        <span class="categoria">PEDRO CANÁRIO</span>
-
-        <h2>PCanário Notícias está chegando para conectar Pedro Canário</h2>
-
-        <p>
-          Informação, acontecimentos, oportunidades e tudo que é notícia
-          em Pedro Canário e região em um só lugar.
-        </p>
+    <article class="card" id="empregos">
+      <div class="foto">💼 EMPREGOS</div>
+      <div class="card-texto">
+        <span>OPORTUNIDADES</span>
+        <h3>Confira vagas de emprego em Pedro Canário e região</h3>
+        <p>Empresas e trabalhadores conectados em um único lugar.</p>
+        <small>Atualizado hoje</small>
       </div>
-    </section>
+    </article>
 
-    <section class="noticias">
+    <article class="card" id="policia">
+      <div class="foto">🚨 NOTÍCIA</div>
+      <div class="card-texto">
+        <span>POLÍCIA</span>
+        <h3>Notícias policiais de Pedro Canário e região</h3>
+        <p>Informações confirmadas sobre os acontecimentos locais.</p>
+        <small>PCanário Notícias</small>
+      </div>
+    </article>
 
-      <article class="card">
-        <div class="card-img">FOTO DA NOTÍCIA</div>
-        <div class="card-conteudo">
-          <small>CIDADE</small>
-          <h3>Notícias de Pedro Canário em tempo real</h3>
-          <p>Acompanhe os principais acontecimentos da nossa cidade.</p>
-        </div>
+  </div>
+</section>
+
+<section class="meio">
+
+  <div>
+    <div class="titulo">
+      <h2>Pedro Canário</h2>
+    </div>
+
+    <div class="lista">
+      <article>
+        <b>POLÍTICA</b>
+        <h3>Prefeitura, Câmara e decisões que afetam a população</h3>
       </article>
 
-      <article class="card">
-        <div class="card-img">FOTO DA NOTÍCIA</div>
-        <div class="card-conteudo">
-          <small>EMPREGOS</small>
-          <h3>Vagas e oportunidades na região</h3>
-          <p>Um espaço para aproximar empresas e trabalhadores.</p>
-        </div>
+      <article>
+        <b>ESPORTES</b>
+        <h3>Times, atletas e competições da nossa cidade</h3>
       </article>
 
-      <article class="card">
-        <div class="card-img">FOTO DA NOTÍCIA</div>
-        <div class="card-conteudo">
-          <small>REGIÃO</small>
-          <h3>As principais informações do Norte do Espírito Santo</h3>
-          <p>Notícias que impactam Pedro Canário e cidades vizinhas.</p>
-        </div>
+      <article>
+        <b>REGIÃO</b>
+        <h3>As principais notícias do Norte Capixaba</h3>
       </article>
+    </div>
+  </div>
 
-    </section>
-
-    <section class="servicos">
-      <h2>PCanário Serviços</h2>
-
-      <div class="servicos-grid">
-        <div class="servico">💼 Empregos</div>
-        <div class="servico">📢 Classificados</div>
-        <div class="servico">📅 Eventos</div>
-        <div class="servico">🏪 Guia Comercial</div>
-      </div>
-    </section>
-
-  </main>
-
-  <a class="whatsapp"
-     href="https://wa.me/5527995080387"
-     target="_blank"
-     aria-label="WhatsApp">
-    ☎
-  </a>
-
-  <footer>
-    <strong>PCANÁRIO NOTÍCIAS</strong>
-    <br><br>
-    Pedro Canário - Espírito Santo
-    <br><br>
-    © 2026 PCanário Notícias • Todos os direitos reservados
-  </footer>
-
-</body>
-</html>
+  <aside class="mais

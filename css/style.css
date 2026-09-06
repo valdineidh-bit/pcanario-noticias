@@ -1,0 +1,137 @@
+:root{
+  --azul:#061426;
+  --azul2:#0b2544;
+  --ouro:#d8b43c;
+  --fundo:#f3f5f8;
+  --texto:#101722;
+  --cinza:#6d7682;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--fundo);
+  color:var(--texto);
+}
+
+a{text-decoration:none;color:inherit}
+
+.wrap{
+  width:min(1180px,calc(100% - 32px));
+  margin:auto;
+}
+
+/* PLANTÃO */
+.plantao{
+  background:#bd0000;
+  color:#fff;
+  font-size:13px;
+}
+
+.plantao .wrap{
+  min-height:39px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.plantao b{font-size:12px}
+
+/* CABEÇALHO */
+header{
+  background:
+    radial-gradient(circle at 80% 20%,#173a63 0,transparent 35%),
+    linear-gradient(135deg,#030b14,#071a30 60%,#0c2747);
+  color:white;
+  border-bottom:3px solid var(--ouro);
+}
+
+.topo{
+  min-height:115px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:37px;
+  font-weight:900;
+  letter-spacing:-2px;
+}
+
+.logo span{color:var(--ouro)}
+
+.slogan{
+  margin-top:4px;
+  color:#aebaca;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.local{
+  color:#bfc9d6;
+  font-size:13px;
+}
+
+/* MENU */
+nav{
+  background:#0a2039;
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:50;
+  box-shadow:0 4px 15px #0002;
+}
+
+.menu{
+  display:flex;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.menu::-webkit-scrollbar{display:none}
+
+.menu a{
+  flex:none;
+  padding:16px 15px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.menu a:first-child{color:var(--ouro)}
+.menu a:hover{background:#123353}
+
+/* PUBLICIDADE */
+.publicidade{
+  margin:22px 0;
+  min-height:75px;
+  background:white;
+  border:1px dashed #c7ccd3;
+  border-radius:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#9299a2;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+/* DESTAQUE */
+.hero{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:15px;
+}
+
+.principal{
+  min-height:455px;
+  border-radius:18px;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(to top,#02070eee 
