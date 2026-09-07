@@ -830,3 +830,68 @@ section{
         font-size:23px;
     }
 }
+
+/* ===== PAGINAS INSTITUCIONAIS ===== */
+.pagina-institucional{
+    max-width:900px;
+    margin:35px auto 60px;
+    padding:35px;
+    background:#fff;
+    border-radius:15px;
+    box-shadow:0 6px 25px #0000000d;
+}
+
+.pagina-tag{
+    color:#a57800;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.pagina-institucional h1{
+    margin:10px 0 25px;
+    color:#07182d;
+    font-size:clamp(32px,5vw,48px);
+}
+
+.pagina-institucional h2{
+    margin:30px 0 10px;
+    color:#07182d;
+}
+
+.pagina-institucional p{
+    margin-bottom:17px;
+    color:#37424d;
+    font-size:17px;
+    line-height:1.7;
+}
+
+.contato-caixa{
+    margin:25px 0;
+    padding:22px;
+    background:#f3f5f8;
+    border-left:4px solid #d8b43c;
+    border-radius:8px;
+}
+
+.botao-pagina{
+    display:inline-block;
+    margin-top:5px;
+    padding:13px 18px;
+    background:#25d366;
+    color:#062613;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:900;
+}
+
+@media(max-width:650px){
+    .pagina-institucional{
+        margin:15px 0 40px;
+        padding:23px 17px;
+    }
+
+    .pagina-institucional p{
+        font-size:16px;
+    }
+}

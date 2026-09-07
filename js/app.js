@@ -244,6 +244,7 @@ async function carregarNoticiasPCanario() {
         });
 
         atualizarDestaquePCanario();
+        atualizarUltimasPCanario();
 
         if (location.hash.startsWith("#noticia-")) {
             const id = decodeURIComponent(
@@ -340,6 +341,11 @@ function filtrarNoticiasPCanario(){
         );
 
     if(!area) return;
+
+/* Remove cards de demonstração quando o feed real carregar */
+area.querySelectorAll(".card:not(.card-noticia)").forEach(card => {
+    card.remove();
+});
 
     if(visiveis === 0 &&
        document.querySelector(".card-noticia")){
@@ -523,3 +529,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+/* ===== ULTIMAS NOTICIAS LATERAL ===== */
+function atualizarUltimasPCanario(){
+    const area = document.getElementById("ultimas-pcanario");
+    if(!area || !noticiasPCanario.length) return;
+
+    area.innerHTML = noticiasPCanario.slice(0,4).map((n, i) => `
+        <div class="ultima-item"
+             role="button"
+             tabindex="0"
+             data-noticia-id="${esc(n.id)}">
+            <strong>${String(i + 1).padStart(2,"0")}</strong>
+            <p>${esc(n.titulo || "")}</p>
+        </div>
+    `).join("");
+
+    area.querySelectorAll(".ultima-item").forEach(item => {
+        const abrir = () => abrirMateria(item.dataset.noticiaId);
+
+        item.addEventListener("click", abrir);
+        item.addEventListener("keydown", e => {
+            if(e.key === "Enter" || e.key === " "){
+                e.preventDefault();
+                abrir();
+            }
+        });
+    });
+}
