@@ -31,11 +31,30 @@ function dataBR(v) {
     });
 }
 
+function slugNoticia(titulo) {
+    return String(titulo || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-zA-Z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "")
+        .toLowerCase()
+        .slice(0,100);
+}
+
+function urlNoticia(n) {
+    return "noticias/" + slugNoticia(n.titulo) + ".html";
+}
+
 function abrirMateria(id, mudarURL=true) {
     const n = noticiasPCanario.find(
         x => String(x.id) === String(id)
     );
     if (!n) return;
+
+    if (mudarURL) {
+        location.href = urlNoticia(n);
+        return;
+    }
 
     const main = document.querySelector("main.wrap");
     if (!main) return;
