@@ -22,3 +22,6 @@ js/app-antes-*
 # Termux/editor
 *.swp
 *.tmp
+
+# Diagnosticos locais
+pcanario-atual.txt
