@@ -164,6 +164,11 @@ async function carregarNoticiasPCanario() {
             ? [...dados.noticias].reverse()
             : [];
 
+        /* Remove apenas os cards antigos de demonstração */
+        area.querySelectorAll(".card:not(.card-noticia)").forEach(card => {
+            card.remove();
+        });
+
         noticiasPCanario.forEach(n => {
 
             const card =
@@ -342,10 +347,6 @@ function filtrarNoticiasPCanario(){
 
     if(!area) return;
 
-/* Remove cards de demonstração quando o feed real carregar */
-area.querySelectorAll(".card:not(.card-noticia)").forEach(card => {
-    card.remove();
-});
 
     if(visiveis === 0 &&
        document.querySelector(".card-noticia")){
