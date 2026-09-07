@@ -270,6 +270,9 @@ async function carregarNoticiasPCanario() {
         atualizarDestaquePCanario();
         atualizarUltimasPCanario();
 
+        // Reaplica busca e categoria depois que o feed termina de carregar
+        filtrarNoticiasPCanario();
+
         if (location.hash.startsWith("#noticia-")) {
             const id = decodeURIComponent(
                 location.hash.substring(9)
