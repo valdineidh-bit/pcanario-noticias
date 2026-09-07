@@ -405,7 +405,22 @@ document.addEventListener(
         if(busca){
             busca.addEventListener(
                 "input",
-                filtrarNoticiasPCanario
+                () => {
+                    filtrarNoticiasPCanario();
+
+                    if (busca.value.trim().length > 0) {
+                        const area = document.getElementById(
+                            "noticias-publicadas"
+                        );
+
+                        if (area) {
+                            area.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+                        }
+                    }
+                }
             );
         }
 
