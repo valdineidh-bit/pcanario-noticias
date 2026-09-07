@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061426">
+
+<title>Empregos em Pedro Canário | PCanário Notícias</title>
+
+<meta name="description" content="Vagas de emprego e oportunidades em Pedro Canário e região. Empresas também podem cadastrar gratuitamente suas vagas para análise do PCanário.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="PCanário Notícias">
+
+<link rel="canonical" href="https://valdineidh-bit.github.io/pcanario-noticias/empregos.html">
+<link rel="icon" type="image/png" href="imagens/favicon.png">
+<link rel="stylesheet" href="css/style.css">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="PCanário Notícias">
+<meta property="og:title" content="Empregos em Pedro Canário | PCanário">
+<meta property="og:description" content="Encontre oportunidades ou cadastre uma vaga de emprego em Pedro Canário e região.">
+<meta property="og:image" content="https://valdineidh-bit.github.io/pcanario-noticias/imagens/compartilhar-pcanario.jpg">
+</head>
+
+<body>
+
+<div class="plantao">
+  <div class="wrap">
+    <b>● PCANÁRIO EMPREGOS</b>
+    <span>Oportunidades de Pedro Canário e região</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap topo">
+    <div>
+      <a href="index.html" class="logo logo-link">P<span>CANÁRIO</span></a>
+      <div class="slogan">NOTÍCIAS • PEDRO CANÁRIO - ES</div>
+    </div>
+    <div class="local">Pedro Canário • Espírito Santo</div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap menu">
+    <a href="index.html">INÍCIO</a>
+    <a href="index.html?categoria=CIDADE#cidade">CIDADE</a>
+    <a href="index.html?categoria=POLÍCIA#cidade">POLÍCIA</a>
+    <a href="index.html?categoria=POLÍTICA#cidade">POLÍTICA</a>
+    <a href="index.html?categoria=REGIÃO#cidade">REGIÃO</a>
+    <a href="index.html?categoria=EDUCAÇÃO#cidade">EDUCAÇÃO</a>
+    <a href="index.html?categoria=ESPORTES#cidade">ESPORTES</a>
+    <a href="empregos.html">EMPREGOS</a>
+    <a href="index.html#classificados">CLASSIFICADOS</a>
+  </div>
+</nav>
+
+<main class="wrap empregos-pro">
+
+<div id="vaga-enviada" class="vaga-enviada" hidden>
+  <strong>✅ Vaga enviada para análise!</strong>
+  <p>
+    Recebemos o cadastro. A oportunidade será analisada pelo
+    PCanário antes de ser publicada.
+  </p>
+</div>
+
+<section class="empregos-hero">
+  <span class="empregos-selo">💼 PCANÁRIO EMPREGOS</span>
+
+  <h1>Oportunidades mais perto de você</h1>
+
+  <p>
+    Encontre vagas em Pedro Canário e região ou anuncie uma
+    oportunidade para encontrar novos profissionais.
+  </p>
+
+  <div class="empregos-acoes">
+    <a href="#vagas" class="emprego-btn-secundario">
+      🔎 Ver vagas
+    </a>
+
+    <a href="#cadastrar-vaga" class="emprego-btn-principal">
+      + Cadastrar uma vaga
+    </a>
+  </div>
+</section>
+
+<section id="vagas" class="empregos-bloco">
+  <div class="titulo">
+    <h2>💼 Vagas disponíveis</h2>
+  </div>
+
+  <div id="lista-vagas-pcanario" class="lista-vagas-pro">
+    <div class="vaga-vazia">
+      <strong>Novas oportunidades serão publicadas aqui.</strong>
+      <p>Acompanhe o PCanário para não perder novas vagas.</p>
+    </div>
+  </div>
+</section>
+
+<section id="cadastrar-vaga" class="cadastro-vaga-pro">
+
+<div class="cabecalho-form-vaga">
+  <span>PARA EMPRESAS E CONTRATANTES</span>
+  <h2>Cadastre uma vaga</h2>
+  <p>
+    Preencha as informações abaixo. A vaga será analisada
+    pela equipe do PCanário antes da publicação.
+  </p>
+</div>
+
+<form id="form-vaga-pcanario"
+action="https://formsubmit.co/valdineidh@outlook.com"
+method="POST">
+
+<input type="hidden" name="_subject"
+value="💼 Nova vaga cadastrada no PCanário">
+
+<input type="hidden" name="_template" value="table">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="hidden" name="_next"
+value="https://valdineidh-bit.github.io/pcanario-noticias/empregos.html?enviado=1">
+
+<div class="form-grid">
+
+<label>
+Nome da empresa *
+<input type="text" name="empresa" required maxlength="100"
+       placeholder="Ex.: Empresa Canário">
+</label>
+
+<label>
+Nome do responsável *
+<input type="text" name="responsavel" required maxlength="100"
+       placeholder="Quem está cadastrando a vaga">
+</label>
+
+<label>
+Cargo / função *
+<input type="text" name="cargo" required maxlength="100"
+       placeholder="Ex.: Auxiliar administrativo">
+</label>
+
+<label>
+Cidade *
+<input type="text" name="cidade" required maxlength="80"
+       value="Pedro Canário">
+</label>
+
+<label>
+Tipo de contratação *
+<select name="contratacao" required>
+<option value="">Selecione</option>
+<option>CLT</option>
+<option>Temporário</option>
+<option>Estágio</option>
+<option>Jovem Aprendiz</option>
+<option>Freelancer</option>
+<option>Prestador de serviço</option>
+<option>Outro</option>
+</select>
+</label>
+
+<label>
+Salário
+<input type="text" name="salario" maxlength="50"
+       placeholder="Opcional">
+</label>
+
+<label>
+Quantidade de vagas
+<input type="number" name="quantidade" min="1" max="999" value="1">
+</label>
+
+<label>
+Prazo para candidatura
+<input type="date" name="validade">
+</label>
+
+</div>
+
+<label>
+Descrição da vaga *
+<textarea name="descricao" required maxlength="2000"
+          placeholder="Explique as principais atividades da vaga."></textarea>
+</label>
+
+<label>
+Requisitos *
+<textarea name="requisitos" required maxlength="1500"
+          placeholder="Experiência, escolaridade, habilitação ou outros requisitos."></textarea>
+</label>
+
+<div class="form-grid">
+
+<label>
+WhatsApp ou telefone para candidatura *
+<input type="tel" name="contato" required maxlength="30"
+       placeholder="(27) 99999-9999">
+</label>
+
+<label>
+E-mail
+<input type="email" name="email" maxlength="120"
+       placeholder="Opcional">
+</label>
+
+</div>
+
+<label>
+Como o candidato deve se inscrever? *
+<textarea name="como_candidatar" required maxlength="600"
+          placeholder="Ex.: Enviar currículo pelo WhatsApp informado."></textarea>
+</label>
+
+<label class="aceite-vaga">
+<input type="checkbox" name="declaracao" required>
+<span>
+Declaro que as informações fornecidas são verdadeiras e autorizo
+o PCanário Notícias a analisar e divulgar esta oportunidade.
+</span>
+</label>
+
+<div class="aviso-moderacao">
+🛡️ <strong>Publicação moderada:</strong>
+o envio do formulário não significa publicação automática.
+O PCanário poderá verificar, editar ou recusar anúncios.
+</div>
+
+<button type="submit" class="enviar-vaga-pro">
+Enviar vaga para análise →
+</button>
+
+<p id="status-vaga" class="status-vaga"></p>
+
+</form>
+</section>
+
+<section class="seguranca-empregos">
+<h2>⚠️ Segurança para candidatos</h2>
+<p>
+O PCanário apenas divulga oportunidades. Desconfie de vagas que
+solicitem pagamentos, senhas, códigos de verificação ou dados
+financeiros para participar de processos seletivos.
+</p>
+</section>
+
+</main>
+
+<a class="whatsapp"
+href="https://wa.me/5527995080387"
+target="_blank"
+rel="noopener noreferrer">💬</a>
+
+<footer>
+<div class="wrap rodape">
+  <div>
+    <a href="index.html" class="logo logo-link">P<span>CANÁRIO</span></a>
+    <p>Pedro Canário conectado à informação.</p>
+  </div>
+
+  <div>
+    <b>PCANÁRIO NOTÍCIAS</b>
+    <p>Pedro Canário • Espírito Santo</p>
+  </div>
+</div>
+</footer>
+
+<script>
+const parametros = new URLSearchParams(window.location.search);
+
+if (parametros.get("enviado") === "1") {
+  const aviso = document.getElementById("vaga-enviada");
+
+  if (aviso) {
+    aviso.hidden = false;
+    aviso.scrollIntoView({behavior: "smooth"});
+  }
+
+  history.replaceState({}, "", "empregos.html");
+}
+</script>
+
+</body>
+</html>

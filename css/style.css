@@ -1056,3 +1056,221 @@ section{
   color:#09223b;
   border:2px solid #09223b;
 }
+
+/* ===== PCANARIO EMPREGOS PRO ===== */
+
+.empregos-pro{
+  padding-top:28px;
+  padding-bottom:50px;
+}
+
+.empregos-hero{
+  background:#061426;
+  color:#fff;
+  border-radius:18px;
+  padding:42px 32px;
+  margin-bottom:32px;
+}
+
+.empregos-selo{
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.7px;
+  color:#e1b94f;
+}
+
+.empregos-hero h1{
+  font-size:36px;
+  margin:12px 0;
+  max-width:700px;
+}
+
+.empregos-hero p{
+  max-width:700px;
+  line-height:1.6;
+  opacity:.9;
+}
+
+.empregos-acoes{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+
+.emprego-btn-principal,
+.emprego-btn-secundario{
+  padding:14px 20px;
+  border-radius:9px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.emprego-btn-principal{
+  background:#d4a72c;
+  color:#061426;
+}
+
+.emprego-btn-secundario{
+  border:1px solid #fff;
+  color:#fff;
+}
+
+.empregos-bloco,
+.cadastro-vaga-pro,
+.seguranca-empregos{
+  background:#fff;
+  border:1px solid #e3e7eb;
+  border-radius:16px;
+  padding:28px;
+  margin-bottom:28px;
+}
+
+.vaga-vazia{
+  padding:28px;
+  background:#f5f7f9;
+  border-radius:12px;
+  text-align:center;
+}
+
+.cabecalho-form-vaga span{
+  color:#9b7715;
+  font-size:12px;
+  font-weight:900;
+}
+
+.cabecalho-form-vaga h2{
+  margin:6px 0;
+  font-size:28px;
+}
+
+.cabecalho-form-vaga p{
+  color:#56616d;
+  margin-bottom:24px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+#form-vaga-pcanario label{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+#form-vaga-pcanario input,
+#form-vaga-pcanario select,
+#form-vaga-pcanario textarea{
+  width:100%;
+  box-sizing:border-box;
+  border:1px solid #cbd3da;
+  border-radius:9px;
+  padding:13px;
+  font:inherit;
+  background:#fff;
+}
+
+#form-vaga-pcanario textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+#form-vaga-pcanario input:focus,
+#form-vaga-pcanario select:focus,
+#form-vaga-pcanario textarea:focus{
+  outline:2px solid #d4a72c;
+  border-color:#d4a72c;
+}
+
+#form-vaga-pcanario .aceite-vaga{
+  flex-direction:row;
+  align-items:flex-start;
+  font-weight:500;
+}
+
+.aceite-vaga input{
+  width:auto !important;
+  margin-top:4px;
+}
+
+.aviso-moderacao{
+  background:#fff8df;
+  border-left:4px solid #d4a72c;
+  padding:15px;
+  border-radius:7px;
+  margin:8px 0 20px;
+  line-height:1.5;
+}
+
+.enviar-vaga-pro{
+  width:100%;
+  border:0;
+  border-radius:10px;
+  padding:16px;
+  background:#061426;
+  color:#fff;
+  font-size:16px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.seguranca-empregos{
+  border-left:5px solid #d4a72c;
+}
+
+.seguranca-empregos p{
+  line-height:1.6;
+}
+
+@media(max-width:700px){
+  .form-grid{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .empregos-hero{
+    padding:30px 20px;
+  }
+
+  .empregos-hero h1{
+    font-size:28px;
+  }
+
+  .cadastro-vaga-pro,
+  .empregos-bloco,
+  .seguranca-empregos{
+    padding:20px;
+  }
+
+  .empregos-acoes a{
+    width:100%;
+    text-align:center;
+    box-sizing:border-box;
+  }
+}
+
+.vaga-enviada{
+  background:#eaf8ef;
+  border:1px solid #9bd3aa;
+  border-left:5px solid #238636;
+  border-radius:12px;
+  padding:18px 20px;
+  margin-bottom:24px;
+  color:#123d20;
+}
+
+.vaga-enviada strong{
+  display:block;
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.vaga-enviada p{
+  margin:0;
+  line-height:1.5;
+}
