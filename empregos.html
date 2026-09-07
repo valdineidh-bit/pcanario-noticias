@@ -335,6 +335,13 @@ async function carregarVagasPCanario() {
       const linkWhatsApp = telefone
         ? `https://wa.me/${telefone}?text=${mensagem}`
         : "";
+
+      const mensagemPreenchida = encodeURIComponent(
+        `Olá, sou responsável pela empresa ${vaga.empresa || "empresa"}. A vaga de ${vaga.cargo || "emprego"} (ID ${vaga.id || "não informado"}) já foi preenchida. Solicito o encerramento da publicação no PCanário Empregos.`
+      );
+
+      const linkVagaPreenchida =
+        `https://wa.me/5527995080387?text=${mensagemPreenchida}`;
       card.className = "vaga-card";
 
       card.innerHTML = `
@@ -359,6 +366,13 @@ async function carregarVagasPCanario() {
              📲 Quero me candidatar
           </a>
         ` : ""}
+
+        <a class="vaga-preenchida"
+           href="${linkVagaPreenchida}"
+           target="_blank"
+           rel="noopener noreferrer">
+           ✅ Vaga preenchida? Avise o PCanário
+        </a>
       `;
 
       lista.appendChild(card);
