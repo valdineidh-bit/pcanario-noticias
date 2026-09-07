@@ -1,0 +1,24 @@
+# Redação privada
+dados/noticias.json
+dados/noticias-backup.json
+dados/fontes.json
+
+# Bot e arquivos internos
+bot/
+__pycache__/
+*/__pycache__/
+*.pyc
+*.log
+.env
+.env.*
+.pcanario_env
+
+# Backups
+*-backup.*
+*-antes-*
+css/style-antes-*
+js/app-antes-*
+
+# Termux/editor
+*.swp
+*.tmp
