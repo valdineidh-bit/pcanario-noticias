@@ -550,6 +550,39 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+/* ===== CATEGORIA RECEBIDA PELA URL ===== */
+document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const recebida = params.get("categoria");
+
+    if (!recebida) return;
+
+    const categoria = recebida.toUpperCase();
+
+    const permitidas = [
+        "CIDADE",
+        "POLÍCIA",
+        "POLÍTICA",
+        "REGIÃO",
+        "EDUCAÇÃO",
+        "ESPORTES",
+        "EMPREGOS"
+    ];
+
+    if (!permitidas.includes(categoria)) return;
+
+    categoriaPCanario = categoria;
+
+    document.querySelectorAll("#filtros-categorias button").forEach(botao => {
+        botao.classList.toggle(
+            "ativo",
+            botao.dataset.categoria === categoria
+        );
+    });
+
+    filtrarNoticiasPCanario();
+});
+
 /* ===== ULTIMAS NOTICIAS LATERAL ===== */
 function atualizarUltimasPCanario(){
     const area = document.getElementById("ultimas-pcanario");
