@@ -4,7 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#061426">
-<meta name="description" content="PCanário Notícias - Notícias de Pedro Canário e Norte do Espírito Santo">
+<meta name="description" content="Notícias de Pedro Canário e Norte do Espírito Santo. Cidade, política, polícia, empregos, esportes e serviços no PCanário Notícias.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="PCanário Notícias">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://valdineidh-bit.github.io/pcanario-noticias/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="PCanário Notícias">
+<meta property="og:title" content="PCanário Notícias | Pedro Canário - ES">
+<meta property="og:description" content="Pedro Canário na palma da sua mão. Notícias e serviços de Pedro Canário e região.">
+<meta property="og:url" content="https://valdineidh-bit.github.io/pcanario-noticias/">
+<meta name="twitter:card" content="summary_large_image">
 <title>PCanário Notícias | Pedro Canário - ES</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -41,6 +52,26 @@
   </div>
 </nav>
 
+<section class="barra-ferramentas wrap" aria-label="Busca de notícias">
+  <div class="busca-box">
+    <span aria-hidden="true">🔎</span>
+    <input id="busca-noticias"
+           type="search"
+           placeholder="Buscar notícias no PCanário..."
+           aria-label="Buscar notícias">
+  </div>
+
+  <div id="filtros-categorias" class="filtros">
+    <button type="button" data-categoria="TODAS" class="ativo">Todas</button>
+    <button type="button" data-categoria="CIDADE">Cidade</button>
+    <button type="button" data-categoria="POLÍCIA">Polícia</button>
+    <button type="button" data-categoria="POLÍTICA">Política</button>
+    <button type="button" data-categoria="REGIÃO">Região</button>
+    <button type="button" data-categoria="ESPORTES">Esportes</button>
+    <button type="button" data-categoria="EMPREGOS">Empregos</button>
+  </div>
+</section>
+
 <main class="wrap">
 
 <div class="publicidade">
@@ -49,8 +80,8 @@
 
 <section class="hero">
 
-  <article class="principal">
-    <div class="conteudo-principal">
+  <article class="principal" id="destaque-principal">
+    <div class="conteudo-principal" id="conteudo-destaque">
       <span class="tag">DESTAQUE</span>
       <h1>PCanário: Pedro Canário na palma da sua mão</h1>
       <p>Notícias, oportunidades e tudo que acontece em Pedro Canário e no Norte Capixaba.</p>
@@ -205,6 +236,12 @@ target="_blank">💬</a>
       <p>Pedro Canário • Espírito Santo</p>
     </div>
 
+  </div>
+
+  <div class="links-rodape">
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html">Contato</a>
+    <a href="privacidade.html">Privacidade</a>
   </div>
 
   <div class="copy">

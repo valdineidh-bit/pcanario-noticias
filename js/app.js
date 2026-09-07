@@ -115,6 +115,8 @@ function abrirMateria(id, mudarURL=true) {
           Pedro Canário na palma da sua mão.
         </div>
 
+        ${htmlRelacionadasPCanario(n)}
+
       </article>
     `;
 
@@ -170,6 +172,11 @@ async function carregarNoticiasPCanario() {
             card.className = "card card-noticia";
             card.tabIndex = 0;
             card.setAttribute("role","link");
+
+            card.dataset.titulo = n.titulo || "";
+            card.dataset.texto = n.texto || "";
+            card.dataset.categoria =
+                n.categoria || "NOTÍCIAS";
 
             const foto =
                 document.createElement("div");
@@ -233,8 +240,10 @@ async function carregarNoticiasPCanario() {
                     abrirMateria(n.id);
             };
 
-            area.prepend(card);
+            area.appendChild(card);
         });
+
+        atualizarDestaquePCanario();
 
         if (location.hash.startsWith("#noticia-")) {
             const id = decodeURIComponent(
@@ -255,3 +264,242 @@ document.addEventListener(
     "DOMContentLoaded",
     carregarNoticiasPCanario
 );
+
+/* ===== BUSCA E FILTROS PCANARIO ===== */
+
+let categoriaPCanario = "TODAS";
+
+function normalizarPCanario(valor){
+    return String(valor || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+}
+
+function filtrarNoticiasPCanario(){
+    const busca =
+        document.getElementById("busca-noticias");
+
+    const termo = normalizarPCanario(
+        busca ? busca.value : ""
+    );
+
+    let visiveis = 0;
+
+    document
+        .querySelectorAll(".card-noticia")
+        .forEach(card => {
+
+            const titulo =
+                normalizarPCanario(
+                    card.dataset.titulo
+                );
+
+            const texto =
+                normalizarPCanario(
+                    card.dataset.texto
+                );
+
+            const categoria =
+                normalizarPCanario(
+                    card.dataset.categoria
+                );
+
+            const categoriaEscolhida =
+                normalizarPCanario(
+                    categoriaPCanario
+                );
+
+            const bateBusca =
+                !termo ||
+                titulo.includes(termo) ||
+                texto.includes(termo) ||
+                categoria.includes(termo);
+
+            const bateCategoria =
+                categoriaPCanario === "TODAS" ||
+                categoria === categoriaEscolhida;
+
+            const mostrar =
+                bateBusca && bateCategoria;
+
+            card.style.display =
+                mostrar ? "" : "none";
+
+            if(mostrar) visiveis++;
+        });
+
+    let aviso =
+        document.getElementById(
+            "sem-resultados-pcanario"
+        );
+
+    const area =
+        document.getElementById(
+            "noticias-publicadas"
+        );
+
+    if(!area) return;
+
+    if(visiveis === 0 &&
+       document.querySelector(".card-noticia")){
+
+        if(!aviso){
+            aviso = document.createElement("div");
+            aviso.id =
+                "sem-resultados-pcanario";
+            aviso.className =
+                "sem-resultados";
+
+            aviso.textContent =
+                "Nenhuma notícia encontrada.";
+
+            area.appendChild(aviso);
+        }
+
+        aviso.style.display = "";
+
+    }else if(aviso){
+        aviso.style.display = "none";
+    }
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const busca =
+            document.getElementById(
+                "busca-noticias"
+            );
+
+        if(busca){
+            busca.addEventListener(
+                "input",
+                filtrarNoticiasPCanario
+            );
+        }
+
+        document
+            .querySelectorAll(
+                "#filtros-categorias button"
+            )
+            .forEach(botao => {
+
+                botao.addEventListener(
+                    "click",
+                    () => {
+
+                        categoriaPCanario =
+                            botao.dataset.categoria;
+
+                        document
+                            .querySelectorAll(
+                                "#filtros-categorias button"
+                            )
+                            .forEach(b =>
+                                b.classList.remove(
+                                    "ativo"
+                                )
+                            );
+
+                        botao.classList.add(
+                            "ativo"
+                        );
+
+                        filtrarNoticiasPCanario();
+                    }
+                );
+            });
+    }
+);
+
+/* ===== DESTAQUE E RELACIONADAS ===== */
+
+function atualizarDestaquePCanario(){
+    if(!noticiasPCanario.length) return;
+
+    const n = noticiasPCanario[0];
+    const destaque =
+        document.getElementById("destaque-principal");
+
+    const conteudo =
+        document.getElementById("conteudo-destaque");
+
+    if(!destaque || !conteudo) return;
+
+    if(n.imagem){
+        destaque.style.background =
+            `linear-gradient(to top,#02070eee,#02070e20),
+             url("${n.imagem}") center/cover`;
+    }
+
+    conteudo.innerHTML = `
+        <span class="tag">
+            ${esc(n.categoria || "DESTAQUE")}
+        </span>
+
+        <h1>${esc(n.titulo || "")}</h1>
+
+        <p>
+            ${esc((n.texto || "").slice(0,160))}
+            ${(n.texto || "").length > 160 ? "..." : ""}
+        </p>
+
+        <button type="button"
+                id="abrir-destaque-pcanario">
+            LER NOTÍCIA →
+        </button>
+    `;
+
+    const botao =
+        document.getElementById(
+            "abrir-destaque-pcanario"
+        );
+
+    if(botao){
+        botao.onclick =
+            () => abrirMateria(n.id);
+    }
+}
+
+function relacionadasPCanario(atual){
+    return noticiasPCanario
+        .filter(n =>
+            String(n.id) !== String(atual.id)
+        )
+        .sort((a,b) => {
+            const ac =
+                a.categoria === atual.categoria ? 1 : 0;
+            const bc =
+                b.categoria === atual.categoria ? 1 : 0;
+            return bc - ac;
+        })
+        .slice(0,3);
+}
+
+function htmlRelacionadasPCanario(atual){
+    const lista = relacionadasPCanario(atual);
+
+    if(!lista.length) return "";
+
+    return `
+      <section class="relacionadas">
+        <h2>Leia também</h2>
+
+        <div class="relacionadas-grade">
+          ${lista.map(n => `
+            <button type="button"
+                    onclick="abrirMateria('${esc(n.id)}')">
+              <span>
+                ${esc(n.categoria || "NOTÍCIAS")}
+              </span>
+              <strong>
+                ${esc(n.titulo || "")}
+              </strong>
+            </button>
+          `).join("")}
+        </div>
+      </section>
+    `;
+}

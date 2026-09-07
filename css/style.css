@@ -667,3 +667,166 @@ section{
         width: 100%;
     }
 }
+
+/* ===== BUSCA E FILTROS PCANARIO ===== */
+
+.barra-ferramentas{
+    margin-top:22px;
+}
+
+.busca-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff;
+    border:1px solid #dce1e6;
+    border-radius:12px;
+    padding:0 16px;
+    box-shadow:0 4px 15px #0000000a;
+}
+
+.busca-box input{
+    width:100%;
+    height:52px;
+    border:0;
+    outline:0;
+    background:transparent;
+    font-size:15px;
+    color:#111923;
+}
+
+.filtros{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    margin-top:12px;
+    padding-bottom:4px;
+    scrollbar-width:none;
+}
+
+.filtros::-webkit-scrollbar{
+    display:none;
+}
+
+.filtros button{
+    flex:none;
+    border:1px solid #d6dce2;
+    background:#fff;
+    color:#263646;
+    padding:9px 14px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.filtros button.ativo{
+    background:#061426;
+    border-color:#061426;
+    color:#d8b43c;
+}
+
+.sem-resultados{
+    grid-column:1/-1;
+    padding:35px 20px;
+    background:#fff;
+    border-radius:12px;
+    text-align:center;
+    color:#69737e;
+}
+
+.links-rodape{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:18px;
+    border-top:1px solid #ffffff13;
+}
+
+.links-rodape a{
+    color:#d8b43c;
+    font-size:12px;
+    font-weight:bold;
+}
+
+@media(max-width:650px){
+    .barra-ferramentas{
+        margin-top:15px;
+    }
+
+    .busca-box input{
+        height:48px;
+        font-size:14px;
+    }
+}
+
+/* ===== DESTAQUE E NOTICIAS RELACIONADAS ===== */
+
+#destaque-principal{
+    cursor:pointer;
+}
+
+.relacionadas{
+    margin-top:40px;
+    padding-top:25px;
+    border-top:2px solid #e7e9ec;
+}
+
+.relacionadas h2{
+    color:#07182d;
+    font-size:24px;
+    margin-bottom:18px;
+}
+
+.relacionadas-grade{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.relacionadas-grade button{
+    text-align:left;
+    border:1px solid #e2e6ea;
+    background:#f7f8fa;
+    border-radius:10px;
+    padding:17px;
+    cursor:pointer;
+}
+
+.relacionadas-grade button:hover{
+    background:#fff;
+    box-shadow:0 5px 18px #00000010;
+}
+
+.relacionadas-grade span{
+    display:block;
+    color:#a57800;
+    font-size:10px;
+    font-weight:900;
+    margin-bottom:7px;
+}
+
+.relacionadas-grade strong{
+    color:#07182d;
+    font-size:15px;
+    line-height:1.35;
+}
+
+@media(max-width:650px){
+    .relacionadas-grade{
+        grid-template-columns:1fr;
+    }
+
+    .relacionadas{
+        margin-top:30px;
+    }
+
+    .whatsapp{
+        width:52px;
+        height:52px;
+        right:12px;
+        bottom:12px;
+        font-size:23px;
+    }
+}
