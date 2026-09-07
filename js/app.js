@@ -736,3 +736,41 @@ function atualizarBlocosCategoriasPCanario(){
     configurar("bloco-esportes", "ESPORTES");
     configurar("bloco-regiao", "REGIÃO");
 }
+
+/* ===== PLANTAO PCANARIO ===== */
+async function carregarPlantaoPCanario(){
+    const faixa = document.getElementById("plantao-pcanario");
+    if (!faixa) return;
+
+    try {
+        const r = await fetch(
+            "dados/plantao.json?v=" + Date.now(),
+            {cache:"no-store"}
+        );
+
+        if (!r.ok) return;
+
+        const plantao = await r.json();
+
+        if (!plantao.ativo || !plantao.id) return;
+
+        const texto = faixa.querySelector("span");
+
+        if (texto) {
+            texto.textContent = plantao.titulo || "Notícia urgente";
+        }
+
+        faixa.style.display = "";
+        faixa.style.cursor = "pointer";
+
+        faixa.onclick = () => abrirMateria(plantao.id);
+
+    } catch(e) {
+        console.log("Sem plantão ativo.");
+    }
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    carregarPlantaoPCanario
+);
