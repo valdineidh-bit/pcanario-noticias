@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061426">
+<meta name="robots" content="index,follow">
+
+<title>Anuncie no PCanário | PCanário Notícias</title>
+
+<meta name="description"
+content="Divulgue sua empresa, produto ou serviço no PCanário Notícias. Solicite seu anúncio para Pedro Canário e região.">
+
+<link rel="canonical"
+href="https://valdineidh-bit.github.io/pcanario-noticias/anuncie.html">
+
+<link rel="icon" type="image/png" href="imagens/favicon.png">
+<link rel="apple-touch-icon" href="imagens/favicon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+<div class="wrap topo">
+<div>
+<a href="index.html" class="logo logo-link"
+aria-label="Ir para a página inicial">
+P<span>CANÁRIO</span>
+</a>
+
+<div class="slogan">
+NOTÍCIAS • PEDRO CANÁRIO - ES
+</div>
+</div>
+</div>
+</header>
+
+<nav>
+<div class="wrap menu">
+<a href="index.html">INÍCIO</a>
+<a href="empregos.html">EMPREGOS</a>
+<a href="anuncie.html">ANUNCIE</a>
+<a href="contato.html">CONTATO</a>
+</div>
+</nav>
+
+<main class="wrap">
+
+<article class="pagina-institucional">
+
+<span class="pagina-tag">PUBLICIDADE</span>
+
+<h1>Anuncie no PCanário</h1>
+
+<p>
+Divulgue sua empresa, produto, serviço ou promoção
+para o público de Pedro Canário e região.
+</p>
+
+<div class="aviso-moderacao">
+🛡️ <strong>Publicidade moderada:</strong>
+o envio deste formulário não significa publicação automática.
+O PCanário analisará a solicitação antes da divulgação.
+</div>
+
+<h2>Solicitar anúncio</h2>
+
+<form id="form-anuncio-pcanario"
+action="https://formsubmit.co/valdineidh@outlook.com"
+method="POST">
+
+<input type="hidden"
+name="_subject"
+value="📢 Nova solicitação de anúncio no PCanário">
+
+<input type="hidden"
+name="_template"
+value="table">
+
+<input type="hidden"
+name="_captcha"
+value="false">
+
+<input type="hidden"
+name="_next"
+value="https://valdineidh-bit.github.io/pcanario-noticias/anuncie.html?enviado=1">
+
+<div class="form-grid">
+
+<label>
+Nome da empresa *
+<input type="text"
+name="empresa"
+required
+maxlength="100"
+placeholder="Ex.: Loja Canário">
+</label>
+
+<label>
+Nome do responsável *
+<input type="text"
+name="responsavel"
+required
+maxlength="100"
+placeholder="Seu nome">
+</label>
+
+<label>
+WhatsApp *
+<input type="tel"
+name="whatsapp"
+required
+maxlength="30"
+placeholder="(27) 99999-9999">
+</label>
+
+<label>
+Cidade *
+<input type="text"
+name="cidade"
+required
+maxlength="80"
+value="Pedro Canário">
+</label>
+
+<label>
+Tipo de anúncio *
+<select name="tipo_anuncio" required>
+<option value="">Selecione</option>
+<option>Empresa / marca</option>
+<option>Produto</option>
+<option>Serviço</option>
+<option>Promoção</option>
+<option>Evento comercial</option>
+<option>Outro</option>
+</select>
+</label>
+
+<label>
+Período desejado *
+<select name="periodo" required>
+<option value="">Selecione</option>
+<option>7 dias</option>
+<option>15 dias</option>
+<option>30 dias</option>
+<option>Quero consultar outras opções</option>
+</select>
+</label>
+
+</div>
+
+<label>
+Texto ou descrição do anúncio *
+<textarea
+name="descricao"
+required
+maxlength="1500"
+placeholder="Conte o que deseja divulgar, promoção, produto ou serviço."></textarea>
+</label>
+
+<label>
+Link da empresa ou rede social
+<input type="url"
+name="link_empresa"
+maxlength="300"
+placeholder="https://...">
+</label>
+
+<label class="aceite-vaga">
+<input type="checkbox"
+name="declaracao"
+required>
+
+<span>
+Declaro que as informações enviadas são verdadeiras
+e autorizo o PCanário Notícias a analisar o material
+para possível divulgação.
+</span>
+</label>
+
+<div class="aviso-moderacao">
+📸 Após o envio, a equipe do PCanário poderá entrar em contato
+pelo WhatsApp para solicitar logotipo, foto, arte ou outros
+materiais necessários para preparar o anúncio.
+</div>
+
+<button type="submit" class="enviar-vaga-pro">
+📢 ENVIAR SOLICITAÇÃO
+</button>
+
+</form>
+
+<div id="anuncio-enviado" style="display:none"
+class="aviso-moderacao">
+✅ <strong>Solicitação enviada!</strong><br>
+O PCanário recebeu seus dados e fará a análise antes da publicação.
+</div>
+
+</article>
+
+</main>
+
+<a class="whatsapp"
+href="https://wa.me/5527995080387?text=Olá%20PCanário,%20quero%20informações%20sobre%20publicidade."
+target="_blank"
+rel="noopener noreferrer">💬</a>
+
+<footer>
+<div class="copy">
+© 2026 PCanário Notícias • Todos os direitos reservados
+</div>
+</footer>
+
+<script>
+const parametros = new URLSearchParams(window.location.search);
+
+if (parametros.get("enviado") === "1") {
+  const aviso = document.getElementById("anuncio-enviado");
+  const formulario = document.getElementById("form-anuncio-pcanario");
+
+  if (aviso) aviso.style.display = "block";
+  if (formulario) formulario.style.display = "none";
+}
+</script>
+
+</body>
+</html>

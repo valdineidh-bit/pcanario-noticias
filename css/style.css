@@ -1439,3 +1439,13 @@ section{
 .vaga-preenchida:hover {
   background: #e9e9e9;
 }
+
+/* Faixa de publicidade clicável */
+a.publicidade {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.publicidade:hover {
+  border-color: #8e969f;
+}
