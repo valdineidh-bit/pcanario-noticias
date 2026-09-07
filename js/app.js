@@ -503,3 +503,23 @@ function htmlRelacionadasPCanario(atual){
       </section>
     `;
 }
+
+/* ===== MENU PRINCIPAL POR CATEGORIA ===== */
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("[data-menu-categoria]").forEach(link => {
+        link.addEventListener("click", () => {
+            const categoria = link.dataset.menuCategoria;
+
+            categoriaPCanario = categoria;
+
+            document.querySelectorAll("#filtros-categorias button").forEach(botao => {
+                botao.classList.toggle(
+                    "ativo",
+                    botao.dataset.categoria === categoria
+                );
+            });
+
+            filtrarNoticiasPCanario();
+        });
+    });
+});
