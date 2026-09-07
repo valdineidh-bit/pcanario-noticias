@@ -1011,3 +1011,20 @@ section{
 .acoes-materia .btn-compartilhar:hover{
   background:#1fbd5a !important;
 }
+
+/* Logo PCanário clicável */
+.logo-link{
+  display:inline-block;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+
+.logo-link:hover{
+  text-decoration:none;
+}
+
+.logo-link:focus-visible{
+  outline:2px solid #d4a72c;
+  outline-offset:4px;
+}
