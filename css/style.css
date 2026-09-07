@@ -1028,3 +1028,31 @@ section{
   outline:2px solid #d4a72c;
   outline-offset:4px;
 }
+
+/* Compartilhamento das matérias */
+.acoes-materia .btn-facebook,
+.acoes-materia .btn-copiar{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 18px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:800;
+  text-decoration:none;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+.acoes-materia .btn-facebook{
+  background:#1877f2;
+  color:#fff;
+  border:2px solid #1264cf;
+}
+
+.acoes-materia .btn-copiar{
+  background:#fff;
+  color:#09223b;
+  border:2px solid #09223b;
+}
