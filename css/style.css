@@ -1305,3 +1305,47 @@ section{
     height:auto;
   }
 }
+
+/* ===== AJUSTE MOBILE HOME PCANARIO ===== */
+@media (max-width:700px){
+
+  .meio{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    width:100%;
+    max-width:100%;
+    gap:20px;
+  }
+
+  .lista,
+  .mais-lidas{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    box-sizing:border-box;
+  }
+
+  .lista article,
+  .lista h3,
+  .mais-lidas div,
+  .mais-lidas p{
+    min-width:0;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+
+  .mais-lidas{
+    padding:20px;
+    overflow:hidden;
+  }
+
+  .mais-lidas div{
+    flex-wrap:wrap;
+  }
+
+  .mais-lidas p{
+    flex:1 1 180px;
+  }
+}
