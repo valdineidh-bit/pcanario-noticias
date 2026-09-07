@@ -270,6 +270,7 @@ async function carregarNoticiasPCanario() {
         atualizarDestaquePCanario();
         atualizarUltimasPCanario();
         atualizarMinisPCanario();
+        atualizarBlocosCategoriasPCanario();
 
         // Reaplica busca e categoria depois que o feed termina de carregar
         filtrarNoticiasPCanario();
@@ -693,4 +694,45 @@ function atualizarMinisPCanario(){
         "REGIÃO",
         noticiasPCanario[1] || noticiasPCanario[0]
     );
+}
+
+/* ===== DESTAQUES POR CATEGORIA ===== */
+function atualizarBlocosCategoriasPCanario(){
+
+    const configurar = (id, categoria) => {
+        const bloco = document.getElementById(id);
+        if (!bloco) return;
+
+        const noticia = noticiasPCanario.find(n =>
+            normalizarPCanario(n.categoria) ===
+            normalizarPCanario(categoria)
+        );
+
+        if (!noticia) return;
+
+        const tag = bloco.querySelector("b");
+        const titulo = bloco.querySelector("h3");
+
+        if (tag) tag.textContent = categoria;
+        if (titulo) titulo.textContent = noticia.titulo || "";
+
+        bloco.style.cursor = "pointer";
+        bloco.tabIndex = 0;
+        bloco.setAttribute("role", "link");
+
+        const abrir = () => abrirMateria(noticia.id);
+
+        bloco.onclick = abrir;
+
+        bloco.onkeydown = e => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                abrir();
+            }
+        };
+    };
+
+    configurar("bloco-politica", "POLÍTICA");
+    configurar("bloco-esportes", "ESPORTES");
+    configurar("bloco-regiao", "REGIÃO");
 }
