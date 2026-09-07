@@ -895,3 +895,32 @@ section{
         font-size:16px;
     }
 }
+
+/* ===== MENU MOBILE PCANARIO ===== */
+@media(max-width:650px){
+    nav{
+        position:sticky;
+        top:0;
+        z-index:100;
+    }
+
+    .menu{
+        gap:6px;
+        padding:7px 10px;
+        overflow-x:auto;
+        scroll-behavior:smooth;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .menu a{
+        padding:11px 14px;
+        border-radius:20px;
+        white-space:nowrap;
+        font-size:11px;
+    }
+
+    .menu a:active{
+        background:#d8b43c;
+        color:#061426;
+    }
+}
