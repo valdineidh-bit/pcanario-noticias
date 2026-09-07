@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "cargo": "Auxiliar Administrativo",
+    "empresa": "Empresa Teste PCanário",
+    "local": "Pedro Canário - ES",
+    "salario": "R$ 1.800,00",
+    "requisitos": "Ensino médio completo e conhecimento básico de informática",
+    "contato": "27999999999",
+    "id": "20260907193949",
+    "data": "07/09/2026",
+    "publicada_em": "2026-09-07T19:39:49",
+    "ativo": true
+  }
+]
