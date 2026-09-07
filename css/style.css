@@ -924,3 +924,17 @@ section{
         color:#061426;
     }
 }
+
+/* Menu completo no celular */
+@media (max-width: 700px) {
+  .menu {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    justify-content: center;
+  }
+
+  .menu a {
+    padding: 10px 8px;
+    font-size: 10px;
+  }
+}
