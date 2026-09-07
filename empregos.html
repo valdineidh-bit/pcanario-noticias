@@ -307,6 +307,20 @@ async function carregarVagasPCanario() {
 
     vagas.forEach(vaga => {
       const card = document.createElement("article");
+
+      let telefone = String(vaga.contato || "").replace(/\D/g, "");
+
+      if (telefone && !telefone.startsWith("55")) {
+        telefone = "55" + telefone;
+      }
+
+      const mensagem = encodeURIComponent(
+        `Olá! Vi a vaga de ${vaga.cargo || "emprego"} da ${vaga.empresa || "empresa"} no PCanário Empregos e gostaria de me candidatar.`
+      );
+
+      const linkWhatsApp = telefone
+        ? `https://wa.me/${telefone}?text=${mensagem}`
+        : "";
       card.className = "vaga-card";
 
       card.innerHTML = `
@@ -325,7 +339,7 @@ async function carregarVagasPCanario() {
 
         ${vaga.contato ? `
           <a class="vaga-candidatar"
-             href="${vaga.contato}"
+             href="${linkWhatsApp}"
              target="_blank"
              rel="noopener noreferrer">
              📲 Quero me candidatar
