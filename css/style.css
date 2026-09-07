@@ -938,3 +938,51 @@ section{
     font-size: 10px;
   }
 }
+
+/* Ações da página individual da notícia */
+.acoes-materia{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin:28px 0 10px;
+  flex-wrap:wrap;
+}
+
+.acoes-materia a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 18px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.btn-voltar{
+  background:#09223b;
+  color:#fff;
+}
+
+.btn-compartilhar{
+  background:#25D366;
+  color:#fff;
+}
+
+.btn-voltar:hover,
+.btn-compartilhar:hover{
+  opacity:.9;
+}
+
+@media (max-width:700px){
+  .acoes-materia{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .acoes-materia a{
+    width:100%;
+    box-sizing:border-box;
+  }
+}
