@@ -285,5 +285,64 @@ if (parametros.get("enviado") === "1") {
 }
 </script>
 
+
+<script>
+async function carregarVagasPCanario() {
+  const lista = document.getElementById("lista-vagas-pcanario");
+  if (!lista) return;
+
+  try {
+    const resposta = await fetch(
+      "dados/vagas.json?v=" + Date.now(),
+      { cache: "no-store" }
+    );
+
+    if (!resposta.ok) throw new Error("Erro ao carregar vagas");
+
+    const vagas = await resposta.json();
+
+    if (!Array.isArray(vagas) || vagas.length === 0) return;
+
+    lista.innerHTML = "";
+
+    vagas.forEach(vaga => {
+      const card = document.createElement("article");
+      card.className = "vaga-card";
+
+      card.innerHTML = `
+        <span class="vaga-data">${vaga.data || ""}</span>
+        <h3>${vaga.cargo || "Vaga disponível"}</h3>
+        <p><strong>🏢 Empresa:</strong> ${vaga.empresa || "Não informada"}</p>
+        <p><strong>📍 Local:</strong> ${vaga.local || "Pedro Canário - ES"}</p>
+        <p><strong>💰 Salário:</strong> ${vaga.salario || "A combinar"}</p>
+
+        ${vaga.requisitos ? `
+          <div class="vaga-requisitos">
+            <strong>Requisitos</strong>
+            <p>${vaga.requisitos}</p>
+          </div>
+        ` : ""}
+
+        ${vaga.contato ? `
+          <a class="vaga-candidatar"
+             href="${vaga.contato}"
+             target="_blank"
+             rel="noopener noreferrer">
+             📲 Quero me candidatar
+          </a>
+        ` : ""}
+      `;
+
+      lista.appendChild(card);
+    });
+
+  } catch (erro) {
+    console.error("PCanário Empregos:", erro);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", carregarVagasPCanario);
+</script>
+
 </body>
 </html>

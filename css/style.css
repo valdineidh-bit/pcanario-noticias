@@ -1349,3 +1349,74 @@ section{
     flex:1 1 180px;
   }
 }
+
+/* ===== CARDS DE VAGAS PCANARIO ===== */
+.lista-vagas-pro{
+  display:grid;
+  gap:18px;
+}
+
+.vaga-card{
+  background:#fff;
+  border:1px solid #e1e6eb;
+  border-left:5px solid #d4a72c;
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 5px 18px #0000000d;
+}
+
+.vaga-card h3{
+  margin:5px 0 15px;
+  font-size:22px;
+  color:#061426;
+}
+
+.vaga-card p{
+  margin:7px 0;
+  line-height:1.5;
+}
+
+.vaga-data{
+  display:block;
+  font-size:12px;
+  color:#68727c;
+  font-weight:700;
+}
+
+.vaga-requisitos{
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid #e8ebee;
+}
+
+.vaga-candidatar{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 18px;
+  background:#08783f;
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  border-radius:9px;
+}
+
+.vaga-candidatar:hover{
+  opacity:.9;
+}
+
+@media(max-width:700px){
+  .vaga-card{
+    padding:18px;
+  }
+
+  .vaga-card h3{
+    font-size:20px;
+  }
+
+  .vaga-candidatar{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+    text-align:center;
+  }
+}
