@@ -986,3 +986,28 @@ section{
     box-sizing:border-box;
   }
 }
+
+/* Botões premium da matéria */
+.materia-individual .acoes-materia .btn-voltar,
+.acoes-materia .btn-voltar{
+  background:#09223b !important;
+  color:#ffffff !important;
+  border:2px solid #d4a72c;
+  box-shadow:0 4px 12px #0002;
+}
+
+.materia-individual .acoes-materia .btn-compartilhar,
+.acoes-materia .btn-compartilhar{
+  background:#25d366 !important;
+  color:#ffffff !important;
+  border:2px solid #1eaf54;
+  box-shadow:0 4px 12px #0002;
+}
+
+.acoes-materia .btn-voltar:hover{
+  background:#123653 !important;
+}
+
+.acoes-materia .btn-compartilhar:hover{
+  background:#1fbd5a !important;
+}
