@@ -301,11 +301,25 @@ async function carregarVagasPCanario() {
 
     const vagas = await resposta.json();
 
-    if (!Array.isArray(vagas) || vagas.length === 0) return;
+    if (!Array.isArray(vagas)) return;
+
+    const vagasAtivas = vagas.filter(
+      vaga => vaga && vaga.ativo !== false
+    );
+
+    if (vagasAtivas.length === 0) {
+      lista.innerHTML = `
+        <div class="vaga-vazia">
+          <strong>Novas oportunidades serão publicadas aqui.</strong>
+          <p>Acompanhe o PCanário para não perder novas vagas.</p>
+        </div>
+      `;
+      return;
+    }
 
     lista.innerHTML = "";
 
-    vagas.forEach(vaga => {
+    vagasAtivas.forEach(vaga => {
       const card = document.createElement("article");
 
       let telefone = String(vaga.contato || "").replace(/\D/g, "");
