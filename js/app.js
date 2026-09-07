@@ -12,206 +12,241 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
 
 let noticiasPCanario = [];
 
-function escaparHTML(valor) {
-    return String(valor || "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+function esc(v) {
+    return String(v || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
 }
 
-function formatarData(data) {
-    if (!data) return "PCanário Notícias";
-
-    const d = new Date(data);
-    if (isNaN(d.getTime())) return "PCanário Notícias";
-
+function dataBR(v) {
+    if (!v) return "";
+    const d = new Date(v);
+    if (isNaN(d)) return "";
     return d.toLocaleString("pt-BR", {
         dateStyle: "long",
         timeStyle: "short"
     });
 }
 
-function abrirMateria(id) {
-    const noticia = noticiasPCanario.find(
-        item => String(item.id) === String(id)
+function abrirMateria(id, mudarURL=true) {
+    const n = noticiasPCanario.find(
+        x => String(x.id) === String(id)
     );
+    if (!n) return;
 
-    if (!noticia) return;
+    const main = document.querySelector("main.wrap");
+    if (!main) return;
 
-    const principal = document.querySelector("main.wrap");
-    if (!principal) return;
+    const link = location.origin +
+        location.pathname + "#noticia-" +
+        encodeURIComponent(n.id);
 
-    principal.dataset.conteudoOriginal = principal.innerHTML;
+    const foto = n.imagem ? `
+        <img class="materia-imagem"
+             src="${esc(n.imagem)}"
+             alt="${esc(n.titulo)}">` : "";
 
-    const imagem = noticia.imagem
-        ? `<img src="${escaparHTML(noticia.imagem)}"
-             alt="${escaparHTML(noticia.titulo)}"
-             class="materia-imagem">`
-        : "";
+    const fonte = n.url_fonte ? `
+        <a class="fonte-link"
+           href="${esc(n.url_fonte)}"
+           target="_blank"
+           rel="noopener noreferrer">
+           ${esc(n.fonte || "Fonte original")}
+        </a>` :
+        esc(n.fonte || "Redação PCanário");
 
-    const fonte = noticia.url_fonte
-        ? `<p class="materia-fonte">
-             Fonte:
-             <a href="${escaparHTML(noticia.url_fonte)}"
-                target="_blank"
-                rel="noopener noreferrer">
-                ${escaparHTML(noticia.fonte || "Fonte original")}
-             </a>
-           </p>`
-        : `<p class="materia-fonte">
-             Fonte: ${escaparHTML(noticia.fonte || "Redação PCanário")}
-           </p>`;
+    main.innerHTML = `
+      <article class="materia-completa">
 
-    principal.innerHTML = `
-        <article class="materia-completa">
+        <button class="voltar-noticias"
+                onclick="location.href=location.pathname">
+          ← Voltar às notícias
+        </button>
 
-            <button class="voltar-noticias"
-                    onclick="voltarNoticias()">
-                ← VOLTAR
-            </button>
+        <div class="materia-categoria">
+          ${esc(n.categoria || "NOTÍCIAS")}
+        </div>
 
-            <span class="tag">
-                ${escaparHTML(noticia.categoria || "NOTÍCIAS")}
-            </span>
+        <h1>${esc(n.titulo)}</h1>
 
-            <h1>${escaparHTML(noticia.titulo)}</h1>
+        <div class="materia-data">
+          ${esc(dataBR(n.publicado_em))}
+        </div>
 
-            <small>
-                ${escaparHTML(formatarData(noticia.publicado_em))}
-            </small>
+        ${foto}
 
-            ${imagem}
+        <div class="compartilhar">
+          <strong>Compartilhe:</strong>
 
-            <div class="materia-texto">
-                ${escaparHTML(noticia.texto)
-                    .replace(/\n/g, "<br>")}
-            </div>
+          <a target="_blank"
+             rel="noopener noreferrer"
+             href="https://wa.me/?text=${encodeURIComponent(
+                 n.titulo + " " + link
+             )}">
+             WhatsApp
+          </a>
 
-            ${fonte}
+          <a target="_blank"
+             rel="noopener noreferrer"
+             href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(link)}">
+             Facebook
+          </a>
 
-            <p class="materia-assinatura">
-                <b>PCanário Notícias</b><br>
-                Pedro Canário na palma da sua mão.
-            </p>
+          <button onclick="copiarLink('${esc(link)}')">
+             Copiar link
+          </button>
+        </div>
 
-        </article>
+        <div class="materia-texto">
+          ${esc(n.texto || "")
+              .replace(/\n\n/g,"</p><p>")
+              .replace(/\n/g,"<br>")}
+        </div>
+
+        <div class="materia-fonte">
+          <strong>Fonte:</strong> ${fonte}
+        </div>
+
+        <div class="materia-assinatura">
+          <strong>PCanário Notícias</strong><br>
+          Pedro Canário na palma da sua mão.
+        </div>
+
+      </article>
     `;
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    document.title =
+        (n.titulo || "Notícia") + " | PCanário Notícias";
 
-    history.pushState(
-        { materia: id },
-        "",
-        "#noticia-" + encodeURIComponent(id)
-    );
+    if (mudarURL) {
+        history.pushState(
+            {noticia:n.id},
+            "",
+            "#noticia-" + encodeURIComponent(n.id)
+        );
+    }
+
+    window.scrollTo(0,0);
 }
 
-function voltarNoticias() {
-    location.hash = "";
-    location.reload();
+async function copiarLink(link) {
+    try {
+        await navigator.clipboard.writeText(link);
+        alert("Link da notícia copiado!");
+    } catch {
+        prompt("Copie o link:", link);
+    }
 }
 
 async function carregarNoticiasPCanario() {
-    const area = document.getElementById("noticias-publicadas");
+    const area =
+        document.getElementById("noticias-publicadas");
+
     if (!area) return;
 
     try {
-        const resposta = await fetch(
+        const r = await fetch(
             "dados/publicadas.json?v=" + Date.now(),
-            { cache: "no-store" }
+            {cache:"no-store"}
         );
 
-        if (!resposta.ok) {
-            throw new Error("Feed indisponível");
-        }
+        if (!r.ok) throw new Error("Feed indisponível");
 
-        const dados = await resposta.json();
+        const dados = await r.json();
 
-        noticiasPCanario = Array.isArray(dados.noticias)
+        noticiasPCanario =
+            Array.isArray(dados.noticias)
             ? [...dados.noticias].reverse()
             : [];
 
-        noticiasPCanario.forEach(noticia => {
-            const card = document.createElement("article");
+        noticiasPCanario.forEach(n => {
+
+            const card =
+                document.createElement("article");
+
             card.className = "card card-noticia";
             card.tabIndex = 0;
+            card.setAttribute("role","link");
 
-            const foto = document.createElement("div");
+            const foto =
+                document.createElement("div");
+
             foto.className = "foto";
 
-            if (noticia.imagem) {
-                const img = document.createElement("img");
-                img.src = noticia.imagem;
-                img.alt = noticia.titulo || "PCanário Notícias";
+            if (n.imagem) {
+                const img =
+                    document.createElement("img");
+
+                img.src = n.imagem;
+                img.alt = n.titulo || "PCanário";
                 img.loading = "lazy";
+
                 foto.appendChild(img);
             } else {
                 foto.textContent = "📰 PCANÁRIO";
             }
 
-            const caixa = document.createElement("div");
+            const caixa =
+                document.createElement("div");
+
             caixa.className = "card-texto";
 
-            const categoria = document.createElement("span");
-            categoria.textContent =
-                noticia.categoria || "NOTÍCIAS";
+            const cat =
+                document.createElement("span");
 
-            const titulo = document.createElement("h3");
-            titulo.textContent = noticia.titulo || "";
+            cat.textContent =
+                n.categoria || "NOTÍCIAS";
 
-            const resumo = document.createElement("p");
-            const corpo = noticia.texto || "";
+            const h =
+                document.createElement("h3");
 
-            resumo.textContent =
-                corpo.length > 180
-                    ? corpo.slice(0, 180) + "..."
-                    : corpo;
+            h.textContent = n.titulo || "";
 
-            const rodape = document.createElement("small");
-            rodape.textContent =
-                formatarData(noticia.publicado_em);
+            const p =
+                document.createElement("p");
 
-            caixa.append(
-                categoria,
-                titulo,
-                resumo,
-                rodape
-            );
+            const texto = n.texto || "";
 
-            card.append(foto, caixa);
+            p.textContent =
+                texto.length > 180
+                ? texto.slice(0,180) + "..."
+                : texto;
 
-            card.addEventListener("click", () => {
-                abrirMateria(noticia.id);
-            });
+            const small =
+                document.createElement("small");
 
-            card.addEventListener("keydown", e => {
-                if (e.key === "Enter") {
-                    abrirMateria(noticia.id);
-                }
-            });
+            small.textContent =
+                dataBR(n.publicado_em) ||
+                "PCanário Notícias";
+
+            caixa.append(cat,h,p,small);
+            card.append(foto,caixa);
+
+            card.onclick =
+                () => abrirMateria(n.id);
+
+            card.onkeydown = e => {
+                if (e.key === "Enter")
+                    abrirMateria(n.id);
+            };
 
             area.prepend(card);
         });
 
-        const hash = location.hash;
-
-        if (hash.startsWith("#noticia-")) {
+        if (location.hash.startsWith("#noticia-")) {
             const id = decodeURIComponent(
-                hash.replace("#noticia-", "")
+                location.hash.substring(9)
             );
 
-            abrirMateria(id);
+            abrirMateria(id,false);
         }
 
-    } catch (erro) {
+    } catch(e) {
         console.error(
-            "PCanário: erro ao carregar notícias",
-            erro
+            "Erro ao carregar PCanário:",e
         );
     }
 }

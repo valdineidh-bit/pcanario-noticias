@@ -510,3 +510,160 @@ section{
   grid-template-columns:1fr;
  }
 }
+
+/* ===== PCANARIO - LEITURA DE MATERIA ===== */
+
+.card-noticia {
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card-noticia:hover {
+    transform: translateY(-3px);
+}
+
+.card-noticia:focus {
+    outline: 3px solid #d4a72c;
+    outline-offset: 3px;
+}
+
+.card-noticia .foto {
+    overflow: hidden;
+}
+
+.card-noticia .foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.materia-completa {
+    max-width: 900px;
+    margin: 35px auto 60px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 12px;
+}
+
+.materia-categoria {
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #a57800;
+}
+
+.materia-completa h1 {
+    margin: 10px 0 12px;
+    color: #07182d;
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.08;
+}
+
+.materia-data {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.materia-imagem {
+    width: 100%;
+    max-height: 560px;
+    object-fit: cover;
+    display: block;
+    margin: 20px 0 25px;
+    border-radius: 10px;
+}
+
+.materia-texto {
+    margin-top: 30px;
+    color: #202020;
+    font-size: 19px;
+    line-height: 1.75;
+}
+
+.materia-texto p {
+    margin: 0 0 20px;
+}
+
+.compartilhar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.compartilhar a,
+.compartilhar button {
+    border: 0;
+    padding: 10px 14px;
+    border-radius: 6px;
+    background: #07182d;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.materia-fonte {
+    margin-top: 35px;
+    padding-top: 18px;
+    border-top: 1px solid #ddd;
+    color: #555;
+}
+
+.fonte-link {
+    color: #0b4c8c;
+    font-weight: 700;
+}
+
+.materia-assinatura {
+    margin-top: 30px;
+    padding: 18px;
+    background: #f4f5f7;
+    border-left: 4px solid #d4a72c;
+}
+
+.voltar-noticias {
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 6px;
+    background: #07182d;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+@media (max-width: 650px) {
+    .materia-completa {
+        margin: 12px 0 40px;
+        padding: 20px 15px;
+        border-radius: 8px;
+    }
+
+    .materia-completa h1 {
+        font-size: 32px;
+    }
+
+    .materia-texto {
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+    .materia-imagem {
+        max-height: 420px;
+    }
+
+    .compartilhar {
+        align-items: stretch;
+    }
+
+    .compartilhar strong {
+        width: 100%;
+    }
+}
