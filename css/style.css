@@ -1542,3 +1542,36 @@ a.publicidade:has(.publicidade-logo)::after {
     height: 100%;
   }
 }
+
+/* Banner publicitário totalmente responsivo */
+a.publicidade:has(.publicidade-logo) {
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #061426;
+}
+
+a.publicidade .publicidade-logo {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+@media (max-width:600px) {
+  a.publicidade:has(.publicidade-logo) {
+    width: 100%;
+    height: auto !important;
+  }
+
+  a.publicidade .publicidade-logo {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
