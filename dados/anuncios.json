@@ -1,0 +1,16 @@
+[
+  {
+    "id": "teste-001",
+    "empresa": "Loja Teste PCanário",
+    "texto": "Ofertas especiais para Pedro Canário",
+    "link": "https://wa.me/5527995080387",
+    "ativo": true
+  },
+  {
+    "id": "teste-002",
+    "empresa": "Mercado Teste PCanário",
+    "texto": "Qualidade e economia perto de você",
+    "link": "https://wa.me/5527995080387",
+    "ativo": true
+  }
+]
