@@ -1575,3 +1575,17 @@ a.publicidade .publicidade-logo {
     height: auto !important;
   }
 }
+
+/* Ajuste final do banner publicitário no computador */
+@media (min-width: 601px) {
+  a.publicidade:has(.publicidade-logo) {
+    height: 260px !important;
+  }
+
+  a.publicidade .publicidade-logo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    background: #061426;
+  }
+}
