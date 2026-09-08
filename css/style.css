@@ -1449,3 +1449,45 @@ a.publicidade {
 a.publicidade:hover {
   border-color: #8e969f;
 }
+
+/* Destaque profissional - Anuncie no PCanário */
+a.publicidade {
+  height: auto;
+  min-height: 75px;
+  padding: 14px 18px;
+  box-sizing: border-box;
+  flex-direction: column;
+  gap: 5px;
+  background: #fff;
+  border: 2px solid #d6b25e;
+  color: #061426;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+a.publicidade::after {
+  content: "TOQUE AQUI PARA ANUNCIAR →";
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #8a691c;
+  letter-spacing: .4px;
+}
+
+a.publicidade:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+@media (max-width: 600px) {
+  a.publicidade {
+    min-height: 68px;
+    height: auto;
+    padding: 12px;
+  }
+}
