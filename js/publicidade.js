@@ -37,6 +37,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       faixa.innerHTML = "";
 
+      if (anuncio.imagem) {
+        const img = document.createElement("img");
+        img.src = anuncio.imagem;
+        img.alt = anuncio.empresa || "Publicidade";
+        img.className = "publicidade-logo";
+        faixa.appendChild(img);
+      }
+
       const empresa = document.createElement("strong");
       empresa.textContent = anuncio.empresa || "Publicidade";
 
