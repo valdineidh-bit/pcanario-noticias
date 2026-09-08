@@ -271,6 +271,46 @@ rel="noopener noreferrer">💬</a>
 </footer>
 
 <script>
+const formVaga = document.getElementById("form-vaga-pcanario");
+
+if (formVaga) {
+  formVaga.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const botao = formVaga.querySelector('button[type="submit"]');
+    const dados = Object.fromEntries(new FormData(formVaga).entries());
+
+    try {
+      if (botao) {
+        botao.disabled = true;
+        botao.textContent = "Enviando...";
+      }
+
+      const r = await fetch(
+        "https://pcanario-vagas.valdineidahorasilva.workers.dev",
+        {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(dados)
+        }
+      );
+
+      if (!r.ok) throw new Error();
+
+      location.href =
+        "/pcanario-noticias/empregos.html?enviado=1";
+
+    } catch (erro) {
+      alert("Erro ao enviar a vaga. Tente novamente.");
+
+      if (botao) {
+        botao.disabled = false;
+        botao.textContent = "Enviar vaga para análise →";
+      }
+    }
+  });
+}
+
 const parametros = new URLSearchParams(window.location.search);
 
 if (parametros.get("enviado") === "1") {
