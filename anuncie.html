@@ -213,6 +213,33 @@ rel="noopener noreferrer">💬</a>
 </footer>
 
 <script>
+const formEnvio = document.getElementById("form-anuncio-pcanario");
+
+if (formEnvio) {
+  formEnvio.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const dados = Object.fromEntries(new FormData(formEnvio).entries());
+
+    try {
+      const r = await fetch(
+        "https://shrill-star-6a6cpcanario-publicidade.valdineidahorasilva.workers.dev",
+        {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(dados)
+        }
+      );
+
+      if (!r.ok) throw new Error();
+
+      location.href = "anuncie.html?enviado=1";
+    } catch (erro) {
+      alert("Erro ao enviar. Tente novamente.");
+    }
+  });
+}
+
 const parametros = new URLSearchParams(window.location.search);
 
 if (parametros.get("enviado") === "1") {
