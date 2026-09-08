@@ -9,7 +9,8 @@
     "id": "20260907200131",
     "data": "07/09/2026",
     "publicada_em": "2026-09-07T20:01:31",
-    "ativo": true
+    "ativo": false,
+    "encerrada_em": "2026-09-08T14:32:03"
   },
   {
     "cargo": "Auxiliar Administrativo",
