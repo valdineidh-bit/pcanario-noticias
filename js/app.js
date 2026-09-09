@@ -384,6 +384,7 @@ function filtrarNoticiasPCanario(){
 
 
     if(visiveis === 0 &&
+       termo &&
        document.querySelector(".card-noticia")){
 
         if(!aviso){
