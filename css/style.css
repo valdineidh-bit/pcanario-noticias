@@ -1611,20 +1611,3 @@ a.publicidade .publicidade-logo {
     font-size: 11px;
   }
 }
-
-/* Logo oficial no cabeçalho */
-.logo-img-link{
-  display:inline-block;
-  line-height:0;
-}
-.logo-img{
-  display:block;
-  width:auto;
-  height:55px;
-  object-fit:contain;
-}
-@media(max-width:800px){
-  .logo-img{
-    height:46px;
-  }
-}
