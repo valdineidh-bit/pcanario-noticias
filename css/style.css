@@ -1732,3 +1732,26 @@ a.publicidade .publicidade-logo {
 .vaga-detalhes{
   margin-top:10px;
 }
+
+/* Contador Premium - PCanário Empregos */
+.contador-vagas-pro{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin:0 0 16px;
+  padding:8px 13px;
+  background:#061426;
+  color:#fff;
+  border-left:4px solid #d6b25e;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:800;
+  box-shadow:0 4px 12px rgba(6,20,38,.08);
+}
+
+@media(max-width:600px){
+  .contador-vagas-pro{
+    width:100%;
+    box-sizing:border-box;
+  }
+}

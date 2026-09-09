@@ -92,6 +92,10 @@
     <h2>💼 Vagas disponíveis</h2>
   </div>
 
+  <div id="contador-vagas-pcanario" class="contador-vagas-pro">
+    💼 Carregando oportunidades...
+  </div>
+
   <div id="lista-vagas-pcanario" class="lista-vagas-pro">
     <div class="vaga-vazia">
       <strong>Novas oportunidades serão publicadas aqui.</strong>
@@ -346,6 +350,17 @@ async function carregarVagasPCanario() {
     const vagasAtivas = vagas.filter(
       vaga => vaga && vaga.ativo !== false
     );
+
+    const contador = document.getElementById("contador-vagas-pcanario");
+
+    if (contador) {
+      const total = vagasAtivas.length;
+
+      contador.textContent =
+        total === 1
+          ? "💼 1 vaga disponível no momento"
+          : `💼 ${total} vagas disponíveis no momento`;
+    }
 
     if (vagasAtivas.length === 0) {
       lista.innerHTML = `
