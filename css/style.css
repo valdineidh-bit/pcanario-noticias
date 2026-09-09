@@ -1471,12 +1471,7 @@ a.publicidade {
 }
 
 a.publicidade::after {
-  content: "TOQUE AQUI PARA ANUNCIAR →";
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  color: #8a691c;
-  letter-spacing: .4px;
+  display: none;
 }
 
 a.publicidade:hover {
@@ -1587,5 +1582,32 @@ a.publicidade .publicidade-logo {
     height: 100% !important;
     object-fit: contain;
     background: #061426;
+  }
+}
+
+
+/* Chamada permanente para novos anunciantes */
+.chamada-anuncie {
+  display: block;
+  margin: -10px 0 22px;
+  padding: 9px 12px;
+  text-align: center;
+  color: #061426;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.chamada-anuncie strong {
+  color: #8a691c;
+}
+
+.chamada-anuncie:hover {
+  text-decoration: underline;
+}
+
+@media (max-width:600px) {
+  .chamada-anuncie {
+    margin: -6px 0 18px;
+    font-size: 11px;
   }
 }
