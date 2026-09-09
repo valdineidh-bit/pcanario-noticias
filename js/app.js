@@ -608,7 +608,11 @@ function atualizarUltimasPCanario(){
     const area = document.getElementById("ultimas-pcanario");
     if(!area || !noticiasPCanario.length) return;
 
-    area.innerHTML = noticiasPCanario.slice(0,4).map((n, i) => `
+    const ultimas = noticiasPCanario
+        .filter(n => String(n.id) !== String(noticiasPCanario[0]?.id))
+        .slice(0,4);
+
+    area.innerHTML = ultimas.map((n, i) => `
         <div class="ultima-item"
              role="button"
              tabindex="0"
@@ -640,7 +644,8 @@ function atualizarMinisPCanario(){
         if (!bloco) return;
 
         const noticia =
-            noticiasPCanario.find(n =>
+            noticiasPCanario.find((n, indice) =>
+                indice > 0 &&
                 normalizarPCanario(n.categoria) ===
                 normalizarPCanario(categoria)
             ) || reserva;
@@ -703,7 +708,8 @@ function atualizarBlocosCategoriasPCanario(){
         const bloco = document.getElementById(id);
         if (!bloco) return;
 
-        const noticia = noticiasPCanario.find(n =>
+        const noticia = noticiasPCanario.find((n, indice) =>
+            indice > 0 &&
             normalizarPCanario(n.categoria) ===
             normalizarPCanario(categoria)
         );
