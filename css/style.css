@@ -1875,3 +1875,37 @@ a.publicidade .publicidade-logo {
     font-size:11px;
   }
 }
+
+/* ===== REFINAMENTO MOBILE VAGAS ===== */
+@media(max-width:600px){
+
+  .contador-vagas-pro{
+    padding:7px 11px;
+    margin-bottom:12px;
+    font-size:12px;
+  }
+
+  .vaga-card{
+    padding:11px 13px;
+  }
+
+  .vaga-card h3{
+    margin:2px 0 6px;
+    font-size:16px;
+  }
+
+  .vaga-card p{
+    margin:2px 0;
+    font-size:12px;
+  }
+
+  .vaga-ver-detalhes{
+    width:auto;
+    display:block;
+    margin:9px 0 0 auto;
+    padding:7px 14px;
+    border-radius:7px;
+    font-size:12px;
+  }
+
+}
