@@ -387,8 +387,17 @@ if (formEnvio) {
 
     const campoPlano = document.getElementById("plano-escolhido");
 
+    if (!planoSelecionado) {
+      alert("⚠️ Escolha um plano de publicidade antes de enviar.");
+      document.querySelector(".planos-publicidade")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+      return;
+    }
+
     if (campoPlano) {
-      campoPlano.value = planoSelecionado ? planoSelecionado.value : "Não selecionado";
+      campoPlano.value = planoSelecionado.value;
     }
 
     const dados = Object.fromEntries(new FormData(formEnvio).entries());
