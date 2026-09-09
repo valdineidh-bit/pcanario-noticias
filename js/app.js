@@ -190,7 +190,7 @@ async function carregarNoticiasPCanario() {
 
         /* A notícia principal já aparece no destaque.
            Nos cards abaixo, começamos pela segunda notícia. */
-        noticiasPCanario.slice(3).forEach(n => {
+        noticiasPCanario.forEach((n, indice) => {
 
             const card =
                 document.createElement("article");
@@ -199,6 +199,7 @@ async function carregarNoticiasPCanario() {
             card.tabIndex = 0;
             card.setAttribute("role","link");
 
+            card.dataset.indice = indice;
             card.dataset.titulo = n.titulo || "";
             card.dataset.texto = n.texto || "";
             card.dataset.categoria =
@@ -352,8 +353,16 @@ function filtrarNoticiasPCanario(){
                 categoriaPCanario === "TODAS" ||
                 categoria === categoriaEscolhida;
 
+            const indice = Number(card.dataset.indice || 0);
+
+            const estaEmTodas =
+                categoriaPCanario === "TODAS";
+
+            const ocultarDestaque =
+                estaEmTodas && !termo && indice < 3;
+
             const mostrar =
-                bateBusca && bateCategoria;
+                bateBusca && bateCategoria && !ocultarDestaque;
 
             card.style.display =
                 mostrar ? "" : "none";
