@@ -1,5 +1,25 @@
 [
   {
+    "cargo": "Auxiliar Comercial",
+    "empresa": "Soft",
+    "local": "Pedro Canário - ES",
+    "salario": "A combinar",
+    "requisitos": "Maior de 18 anos e disponibilidade para escala 12x36",
+    "contato": "27998604149",
+    "descricao": "",
+    "contratacao": "",
+    "quantidade": 1,
+    "validade": "",
+    "como_candidatar": "Falar com Rafaela pelo WhatsApp",
+    "responsavel": "Rafaela",
+    "email": "",
+    "origem": "SITE",
+    "id": "20260908213706",
+    "data": "08/09/2026",
+    "publicada_em": "2026-09-08T21:37:06",
+    "ativo": true
+  },
+  {
     "cargo": "Vendedor",
     "empresa": "Loja Teste PCanário",
     "local": "Pedro Canário - ES",
