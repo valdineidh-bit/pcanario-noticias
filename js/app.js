@@ -188,7 +188,9 @@ async function carregarNoticiasPCanario() {
             card.remove();
         });
 
-        noticiasPCanario.forEach(n => {
+        /* A notícia principal já aparece no destaque.
+           Nos cards abaixo, começamos pela segunda notícia. */
+        noticiasPCanario.slice(1).forEach(n => {
 
             const card =
                 document.createElement("article");
