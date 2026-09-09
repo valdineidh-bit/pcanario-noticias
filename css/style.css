@@ -1909,3 +1909,31 @@ a.publicidade .publicidade-logo {
   }
 
 }
+
+/* ===== AJUSTE FINAL MOBILE EMPREGOS ===== */
+@media(max-width:600px){
+
+  .contador-vagas-pro{
+    width:auto;
+    max-width:100%;
+    display:inline-flex;
+    padding:5px 9px;
+    margin:0 0 11px;
+    gap:4px;
+    font-size:11px;
+    border-left-width:3px;
+    border-radius:6px;
+    box-shadow:0 2px 7px rgba(6,20,38,.08);
+  }
+
+  .vaga-ver-detalhes{
+    width:auto;
+    min-width:0;
+    display:table;
+    margin:8px 0 0 auto;
+    padding:6px 12px;
+    font-size:11px;
+    border-radius:6px;
+  }
+
+}
