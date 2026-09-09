@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     mostrarAnuncio();
 
     if (anuncios.length > 1) {
-      setInterval(mostrarAnuncio, 6000);
+      setInterval(mostrarAnuncio, 10000);
     }
 
   } catch (erro) {
