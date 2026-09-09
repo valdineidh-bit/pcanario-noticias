@@ -391,29 +391,47 @@ async function carregarVagasPCanario() {
         <p><strong>📍 Local:</strong> ${vaga.local || "Pedro Canário - ES"}</p>
         <p><strong>💰 Salário:</strong> ${vaga.salario || "A combinar"}</p>
 
-        ${vaga.requisitos ? `
-          <div class="vaga-requisitos">
-            <strong>Requisitos</strong>
-            <p>${vaga.requisitos}</p>
-          </div>
-        ` : ""}
+        <button type="button" class="vaga-ver-detalhes">
+          Ver detalhes ↓
+        </button>
 
-        ${vaga.contato ? `
-          <a class="vaga-candidatar"
-             href="${linkWhatsApp}"
+        <div class="vaga-detalhes" hidden>
+          ${vaga.requisitos ? `
+            <div class="vaga-requisitos">
+              <strong>Requisitos</strong>
+              <p>${vaga.requisitos}</p>
+            </div>
+          ` : ""}
+
+          ${vaga.contato ? `
+            <a class="vaga-candidatar"
+               href="${linkWhatsApp}"
+               target="_blank"
+               rel="noopener noreferrer">
+               📲 Quero me candidatar
+            </a>
+          ` : ""}
+
+          <a class="vaga-preenchida"
+             href="${linkVagaPreenchida}"
              target="_blank"
              rel="noopener noreferrer">
-             📲 Quero me candidatar
+             ✅ Vaga preenchida? Avise o PCanário
           </a>
-        ` : ""}
-
-        <a class="vaga-preenchida"
-           href="${linkVagaPreenchida}"
-           target="_blank"
-           rel="noopener noreferrer">
-           ✅ Vaga preenchida? Avise o PCanário
-        </a>
+        </div>
       `;
+
+      const botaoDetalhes = card.querySelector(".vaga-ver-detalhes");
+      const detalhes = card.querySelector(".vaga-detalhes");
+
+      if (botaoDetalhes && detalhes) {
+        botaoDetalhes.addEventListener("click", () => {
+          const aberto = !detalhes.hidden;
+          detalhes.hidden = aberto;
+          botaoDetalhes.textContent =
+            aberto ? "Ver detalhes ↓" : "Fechar detalhes ↑";
+        });
+      }
 
       lista.appendChild(card);
     });

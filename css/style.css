@@ -1611,3 +1611,124 @@ a.publicidade .publicidade-logo {
     font-size: 11px;
   }
 }
+
+/* ===== PCANARIO EMPREGOS PREMIUM ===== */
+
+.lista-vagas-pro{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  align-items:start;
+}
+
+.vaga-card{
+  position:relative;
+  padding:18px;
+  border:1px solid #e1e6eb;
+  border-top:4px solid #d4a72c;
+  border-left:1px solid #e1e6eb;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 6px 20px rgba(6,20,38,.07);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+
+.vaga-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 26px rgba(6,20,38,.12);
+}
+
+.vaga-card h3{
+  margin:7px 0 13px;
+  padding-right:5px;
+  font-size:19px;
+  line-height:1.2;
+  color:#061426;
+}
+
+.vaga-card p{
+  margin:6px 0;
+  font-size:14px;
+  line-height:1.4;
+}
+
+.vaga-data{
+  display:inline-block;
+  font-size:11px;
+  font-weight:800;
+  color:#68727c;
+}
+
+.vaga-requisitos{
+  margin-top:13px;
+  padding-top:11px;
+  border-top:1px solid #edf0f2;
+  font-size:13px;
+}
+
+.vaga-candidatar{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  margin-top:14px;
+  padding:10px 12px;
+  text-align:center;
+  font-size:14px;
+  border-radius:8px;
+}
+
+.vaga-preenchida{
+  margin-top:8px;
+  padding:8px 10px;
+  font-size:12px;
+}
+
+@media(max-width:950px){
+  .lista-vagas-pro{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:600px){
+  .lista-vagas-pro{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .vaga-card{
+    padding:15px;
+  }
+
+  .vaga-card h3{
+    font-size:18px;
+  }
+}
+
+
+/* Botão Ver detalhes - Empregos Premium */
+.vaga-ver-detalhes{
+  width:100%;
+  margin-top:14px;
+  padding:9px 12px;
+  border:1px solid #d6b25e;
+  border-radius:8px;
+  background:#061426;
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.vaga-ver-detalhes:hover{
+  background:#0b2340;
+  transform:translateY(-1px);
+}
+
+.vaga-detalhes[hidden]{
+  display:none;
+}
+
+.vaga-detalhes{
+  margin-top:10px;
+}
