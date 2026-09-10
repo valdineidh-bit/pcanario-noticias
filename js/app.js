@@ -565,8 +565,31 @@ function htmlRelacionadasPCanario(atual){
 /* ===== MENU PRINCIPAL POR CATEGORIA ===== */
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-menu-categoria]").forEach(link => {
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (e) => {
             const categoria = link.dataset.menuCategoria;
+
+            if (categoria === "TODAS" && link.textContent.trim().includes("VER TODAS")) {
+                e.preventDefault();
+
+                document.querySelectorAll(".card-noticia").forEach(card => {
+                    card.style.display = "";
+                });
+
+                link.textContent = "RECOLHER ↑";
+                link.dataset.expandido = "sim";
+                return;
+            }
+
+            if (categoria === "TODAS" && link.dataset.expandido === "sim") {
+                e.preventDefault();
+
+                link.textContent = "VER TODAS";
+                link.dataset.expandido = "nao";
+
+                categoriaPCanario = "TODAS";
+                filtrarNoticiasPCanario();
+                return;
+            }
 
             categoriaPCanario = categoria;
 
