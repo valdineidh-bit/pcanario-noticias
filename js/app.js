@@ -359,7 +359,8 @@ function filtrarNoticiasPCanario(){
                 categoriaPCanario === "TODAS";
 
             const ocultarDestaque =
-                estaEmTodas && !termo && indice < 3;
+                estaEmTodas && !termo &&
+                (indice < 3 || indice > 5);
 
             const mostrar =
                 bateBusca && bateCategoria && !ocultarDestaque;
