@@ -154,6 +154,18 @@
       "credito_imagem": "Imagem ilustrativa gerada por IA",
       "url_imagem_fonte": "",
       "publicado_em": "2026-09-17T17:04:52"
+    },
+    {
+      "id": "6b46f80b669a",
+      "titulo": "Produção agrícola brasileira supera R$ 927 bilhões, aponta levantamento",
+      "texto": "O valor da produção agrícola brasileira chegou a R$ 927,2 bilhões em 2025, segundo dados da Produção Agrícola Municipal divulgados pelo IBGE nesta quinta-feira (17).\n\nO resultado representa crescimento de 18,4% em relação a 2024.\n\nA produção de cereais, leguminosas e oleaginosas alcançou 345,4 milhões de toneladas, avanço de 18,2%.\n\nA soja respondeu por 34% do valor da produção agrícola nacional, totalizando R$ 315,2 bilhões.\n\nO levantamento também aponta que a área colhida no país ultrapassou pela primeira vez a marca de 100 milhões de hectares.",
+      "categoria": "CIDADE",
+      "fonte": "Agência Brasil / IBGE",
+      "url_fonte": "https://agenciabrasil.ebc.com.br/",
+      "imagem": "imagens/noticias/6b46f80b669a.jpg",
+      "credito_imagem": "Imagem ilustrativa gerada por IA",
+      "url_imagem_fonte": "",
+      "publicado_em": "2026-09-17T17:09:25"
     }
   ]
 }
